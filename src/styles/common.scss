@@ -1,0 +1,99 @@
+@import 
+
+    "vars",
+    "normalize",
+    "gtf-font",
+
+    // IMPORT MODULES
+    "modules/header",
+    "modules/footer",
+    "modules/forms",
+    "modules/toaster",
+    "modules/login";
+
+* {
+    font-family: "RalewayLight", Helvetica, Arial, sans-serif;
+}
+html {
+    font-weight: 400;
+    font-size: 100%;
+    font-style: normal;
+    font-family: "RalewayLight", Helvetica, Arial, sans-serif;
+    color: $color-grey-dark;
+    background-color: $color-light;
+}
+
+// debug angular
+.ng-animate-start,
+.ng-animate-active {
+    border-collapse: collapse;
+    border-spacing: none;
+    -ms-zoom: auto;
+}
+
+// Adjust page size to device width in virtual pixels
+// on mobile Internet Explorer (e.g. Surface):
+@-ms-viewport {
+    width: device-width;
+}
+
+@font-face {
+    font-family: "RalewayLight";
+    src: url('../font/Raleway-Light.ttf');
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.layout-app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: stretch;
+
+    &__footer-container {
+        padding: 2rem;
+        background: $color-blue;
+    }
+    
+    &__main-container {
+        height: 100%;
+    }
+
+    &__header-container {
+        height: 8rem;
+        background-color: $color-blue;
+    }
+
+    &__content {
+        max-width: 1368px;
+        margin: 0 auto;
+    }
+
+    &--login {
+        background-color: $color-blue;
+    }
+}
+
+
+// Users
+.users {
+	display: flex;
+}
+
+.user {
+	flex-basis: 50%;
+
+	margin: .5rem;
+	padding: 1rem;
+	border: solid 1px #aeaeae;
+}
+
+label.ng-invalid, input.ng-invalid{
+    box-shadow: 0 0 5px 1px red;
+}

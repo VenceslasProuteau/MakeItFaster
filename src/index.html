@@ -1,0 +1,14 @@
+<!doctype html>
+<html ng-app="app" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular App</title>
+  <base href="/">
+</head>
+<body>
+    <ui-view 
+    	class="layout-app"
+    	ng-class="{'layout-app--login': $state.current.name === 'login' || $state.current.name === 'signup'}">
+    </ui-view>
+</body>
+</html>

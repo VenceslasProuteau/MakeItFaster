@@ -1,0 +1,48 @@
+<div class="header">
+
+	<ul class="header-nav">
+		<li class="header-nav__item"
+			ng-if="$state.current.name !== 'app.home' ">
+			<a ui-sref="{{previousState}}">
+				<i class="icon-undo2"></i>
+			</a>
+		</li>
+		<li class="header-nav__item" ng-class="{'header-nav__item--isActive': $root.currentState === 'app.history'}">
+			<a ui-sref="app.history">Mon historique</a>
+		</li>
+		<li class="header-nav__item">
+			<a ui-sref="app.history">Mon panier virtuel</a>
+		</li>
+		<li class="header-nav__item">
+			<a ui-sref="app.history">Autre catégorie</a>
+		</li>
+	</ul>
+
+	<div 
+		class="header-user-wrapper"
+		ng-click="headerCtrl.navActive = !headerCtrl.navActive"
+		>
+		<div 
+			class="header-user-account"
+			>
+			<div class="header-user-avatar">
+				<img src="https://image.freepik.com/free-vector/woman-avatar_23-2147501833.jpg" />
+			</div>
+			<div class="header-user-resume">
+				<span>{{:: headerCtrl.user.password.email}}</span>
+				<span>Fonction</span>
+			</div>
+			<i class="icon-chevron-thin-down"></i>
+		</div>
+		<div 
+			class="header-navDropdown"
+			ng-class="{'header-navDropdown--isActive': headerCtrl.navActive}">
+			<div class="header-navDropdown__block">
+				<i class="icon-cog"></i>
+				<span>Mon compte</span>
+			</div>
+			<a ng-click="headerCtrl.logout()" class="header-navDropdown__block header-navDropdown__block--row"><i class="icon-switch"></i>Déconnexion</a>
+		</div>
+	</div>
+
+</div>

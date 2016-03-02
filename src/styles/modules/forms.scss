@@ -1,0 +1,91 @@
+
+// BUTTONS
+
+.button {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    display: inline-block;
+    cursor: pointer;
+    height: auto;
+    line-height: normal;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,.2);
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+    transition: all ease-in .3s;
+    border: none;
+    border-radius: .3rem;
+
+    &--action {
+    	background-color: $color-red;
+    	&:hover {
+    		background-color: darken($color-red, 5);
+    	}
+    }
+
+    &--w100 {
+        width: 100%;
+    }
+}
+
+
+// LABELS
+
+.label {
+	
+}
+
+// INPUTS
+
+.input {    
+	border: none;
+	padding: .5rem;
+	border-radius: .2rem;
+	display: flex;
+	-webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    -webkit-appearance: none !important;
+}
+input[placeholder] {
+    font-style: italic;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: $color-light;
+    font-family: 'RalewayLight';
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: $color-light;
+   font-family: 'RalewayLight';
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: $color-light;
+   font-family: 'RalewayLight';
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: $color-light;
+   font-family: 'RalewayLight';
+}
+:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+  color: $color-light;
+  font-family: 'RalewayLight';
+}
+
+label.ng-invalid, input.ng-invalid {
+	box-shadow: 0 0px 2px 0px $color-red !important;
+}
+
+/* Change the white to any color ;) */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px lighten($color-blue, 5) inset;
+    color: $color-light;
+}

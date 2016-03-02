@@ -2,7 +2,8 @@
 
 export default class HistoryController {
 
-    constructor() {
+    constructor(UserService) {
+    	this.UserService = UserService;
     }
 
 }

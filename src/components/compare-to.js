@@ -9,7 +9,6 @@ export default class CompareTo {
     }
 
     link(scope, element, attributes, ngModel) {
-        console.log(ngModel);
         ngModel.$validators.compareTo = function(modelValue) {
             return modelValue === scope.otherModelValue;
         };

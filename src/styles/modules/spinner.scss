@@ -1,0 +1,33 @@
+@keyframes spinner {
+
+  100% {
+    transform: rotate(360deg);
+  }
+
+}
+
+.spinner {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	background: rgba(0,0,0,.5);
+	z-index: 1;
+
+	&__wrapper {
+		position: absolute;
+		display: flex;
+	    justify-content: center;
+
+		margin: 0 auto;
+		right: 0;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	&__icon {
+	    font-size: 3rem;
+	    color: $color-blue;
+		animation: spinner 2s infinite;
+	}
+}

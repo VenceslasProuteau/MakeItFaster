@@ -3,6 +3,7 @@
 // import all common scss
 import './styles/common.scss';
 
+// import modules 
 import angular from 'angular';
 import angularfire from 'angularfire';
 import uirouter from 'angular-ui-router';
@@ -15,22 +16,24 @@ import history from './modules/history/module';
 import geolocation from './modules/geolocation/module';
 import user from './modules/user/module';
 import header from './modules/header/module';
-
-import CompareTo from './components/compare-to';
-
 var Firebase = require('firebase');
 
-angular.module('app', [angularfire, toaster, uirouter, login, home, history, geolocation, user, header])
+// import components
+import spinner from './components/spinner/module';
+import CompareTo from './components/compare-to';
+
+angular.module('app', [angularfire, toaster, uirouter, login, home, history, geolocation, user, header, spinner])
     .config(routing)
     .run(runApp)
-    .directive('compareTo', () => new CompareTo);
+    .directive('compareTo', () => new CompareTo)
 
 
-runApp.$inject = ['$rootScope', '$location', '$state', 'UserService'];
+runApp.$inject = ['$rootScope', '$location', '$state', 'SpinnerAPI'];
 
-function runApp($rootScope, $location, $state, UserService) {
+function runApp($rootScope, $location, $state, SpinnerAPI) {
     $rootScope.$state = $state;
-    
+    $rootScope.SpinnerAPI = SpinnerAPI;
+
 	$rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
         // could do better, only used for back button for now ... 
         $rootScope.previousState = fromState.name;

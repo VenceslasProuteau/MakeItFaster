@@ -19,7 +19,7 @@
     font-size: 1.2rem;
     transition: all ease-in .3s;
     border: none;
-    border-radius: .3rem;
+    border-radius: .2rem;
 
     &--action {
     	background-color: $color-red;
@@ -42,19 +42,21 @@
 
 // INPUTS
 
-.input {    
-	border: none;
-	padding: .5rem;
-	border-radius: .2rem;
+input {    
 	display: flex;
+  font-style: normal;
+  border: none;
+  font-size: .9rem;
+  padding: .5rem;
+  border-radius: .2rem;
 	-webkit-user-select: none !important;
     -moz-user-select: none !important;
     -ms-user-select: none !important;
     -webkit-appearance: none !important;
-}
-input[placeholder] {
+  }
+
+input:placeholder-shown {
     font-style: italic;
-    font-size: 1rem;
     opacity: 0.8;
 }
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -84,8 +86,11 @@ label.ng-invalid, input.ng-invalid {
 	box-shadow: 0 0px 2px 0px $color-red !important;
 }
 
-/* Change the white to any color ;) */
+
+
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px lighten($color-blue, 5) inset;
     color: $color-light;
+    -webkit-text-fill-color: $color-light !important;
 }
+

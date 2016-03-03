@@ -19,13 +19,11 @@ import header from './modules/header/module';
 var Firebase = require('firebase');
 
 // import components
-import spinner from './components/spinner/module';
-import CompareTo from './components/compare-to';
+import components from './components/module';
 
-angular.module('app', [angularfire, toaster, uirouter, login, home, history, geolocation, user, header, spinner])
+angular.module('app', [angularfire, toaster, uirouter, login, home, history, geolocation, user, header, components])
     .config(routing)
     .run(runApp)
-    .directive('compareTo', () => new CompareTo)
 
 
 runApp.$inject = ['$rootScope', '$location', '$state', 'SpinnerAPI'];

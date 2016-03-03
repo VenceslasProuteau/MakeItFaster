@@ -2,11 +2,11 @@
 	name="loginForm"
 	class="login">
 	<div class="login__title-block">
-		<img src="http://www.designmusical.com/wp-content/uploads/2013/09/logo-carrefour.jpg"/>
+		Make It Faster 
 	</div>
 	<!-- SIGNUP -->
 	<div class="login__block-wrapper" ng-if="$state.current.name === 'signup' ">
-		<div class="login__sentence">Créez rapidement votre compte <span class="login__brand">Make It Fast</span></div>
+		<div class="login__sentence"><b>Bienvenue.</b> Créez rapidement votre compte <span class="login__brand">Make It Faster.</span></div>
 		<div class="login__block">
 			<input type="email" name="email" id="email" ng-model="user.mail" class="input label login__input" placeholder="Adresse email" ng-pattern="/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/" required/>
 		</div>
@@ -27,7 +27,7 @@
 
 	<!-- LOGIN  -->
 	<div class="login__block-wrapper" ng-if="$state.current.name === 'login' ">
-		<div class="login__sentence"> Accéder à votre application <span class="login__brand">Make It Fast</span></div>
+		<div class="login__sentence"><b>Bienvenue.</b> Accéder à votre application <span class="login__brand">Make It Faster</span></div>
 		<div class="login__block">
 			<input type="email" id="user" ng-model="user.mail" class="input label login__input" placeholder="Adresse email" required/>
 		</div>

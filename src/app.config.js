@@ -9,7 +9,7 @@ export default function routing($stateProvider, $urlRouterProvider) {
             abstract: true,
             views: {
                 '@': {
-                    template: require('./modules/app/layout.tpl.html')
+                    template: require('./modules/app/layout.tpl.html'),
                 },
                 'footer@app': {
                     template: require('./modules/footer/footer.tpl.html')
@@ -17,14 +17,21 @@ export default function routing($stateProvider, $urlRouterProvider) {
                 'header@app': {
                     template: require('./modules/header/header.tpl.html'),
                     controller: 'HeaderController',
-                    controllerAs: 'headerCtrl'
+                    controllerAs: 'headerCtrl'                   
                 }
-            }
-        });
+            },
+            resolve: {
+                resolvedUser: function(UserService) {
+                    return UserService.auth.$requireAuth()
+                        .then((user) => user);
 
+                    resolvedUser.$inject = ['UserService']; 
+                
+                }
+            } 
+        });
 
     $urlRouterProvider
         .when('', '/login')
         .otherwise('/login');
 }
-

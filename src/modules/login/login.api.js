@@ -13,8 +13,10 @@ export default class LoginAPI {
 		this.UserService.auth.$authWithPassword({
 			email: user.mail,
 			password: user.password
+		}, {rememberMe: true})
+		.then((user) => {
+			deferred.resolve(user);
 		})
-		.then((response) => deferred.resolve(response))
 		.catch((error) => deferred.reject(error));
 
 		return deferred.promise;

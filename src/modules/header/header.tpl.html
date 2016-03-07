@@ -29,7 +29,7 @@
 				<img src="https://image.freepik.com/free-vector/woman-avatar_23-2147501833.jpg" />
 			</div>
 			<div class="header-user-resume">
-				<span>{{:: headerCtrl.user.password.email}}</span>
+				<span>{{user.mail}}</span>
 				<span>Fonction</span>
 			</div>
 			<i class="icon-chevron-thin-down"></i>
@@ -37,10 +37,12 @@
 		<div 
 			class="header-navDropdown"
 			ng-class="{'header-navDropdown--isActive': headerCtrl.navActive}">
-			<div class="header-navDropdown__block">
+			<a 
+				ui-sref="app.account"
+				class="header-navDropdown__block">
 				<i class="icon-cog"></i>
 				<span>Mon compte</span>
-			</div>
+			</a>
 			<a ng-click="headerCtrl.logout()" class="header-navDropdown__block header-navDropdown__block--row"><i class="icon-switch"></i>Déconnexion</a>
 		</div>
 	</div>

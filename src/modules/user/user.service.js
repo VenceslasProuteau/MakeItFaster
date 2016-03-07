@@ -2,7 +2,8 @@
 
 export default class UserService {
 
-	constructor($firebaseAuth) {
+	constructor($firebaseAuth, $firebaseObject) {
+		this.$firebaseObject = $firebaseObject;
 		this.ref = new Firebase("https://incandescent-fire-9506.firebaseio.com");
 		this.auth = $firebaseAuth(this.ref);
 	}
@@ -12,6 +13,14 @@ export default class UserService {
 			mail: user.mail
 		});
 	}
+
+	getUser(userId) {
+		const obj = this.$firebaseObject(this.ref.child('users').child(userId));
+		const self = this;
+		
+		return obj.$loaded().then((response) => response);
+	}
+
 }
 
-UserService.$inject = ['$firebaseAuth'];
+UserService.$inject = ['$firebaseAuth', '$firebaseObject'];

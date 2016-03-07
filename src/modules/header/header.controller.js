@@ -2,10 +2,12 @@
 
 export default class HeaderController {
 
-    constructor(UserService, $state) {
+    constructor($scope, UserService, $state, $firebaseObject, resolvedUser) {
         this.UserService = UserService;
-        this.user = this.UserService.auth.$getAuth();
         this.$state = $state;
+        
+        const user = $firebaseObject(UserService.ref.child('users').child(resolvedUser.uid));
+      	user.$bindTo($scope, 'user');
     }
 
     logout() {
@@ -14,4 +16,4 @@ export default class HeaderController {
     }
 }
 
-HeaderController.$inject = ['UserService', '$state'];
+HeaderController.$inject = ['$scope', 'UserService', '$state', '$firebaseObject', 'resolvedUser'];

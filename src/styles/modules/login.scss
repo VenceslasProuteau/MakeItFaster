@@ -81,3 +81,29 @@
 		text-decoration: underline;
 	}
 }
+
+
+
+.account {
+	display: flex;
+	margin: 1rem 0;
+
+	&__block {
+		flex: 0 1 50%;
+
+		& + & {
+			margin-left: 2rem;
+		}
+	}
+
+	&__title {
+		text-align: center;
+		padding: 1rem;
+		background: $color-blue;
+		color: $color-light;
+	}
+
+	&__form {
+
+	}
+}

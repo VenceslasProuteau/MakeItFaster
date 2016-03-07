@@ -8,15 +8,6 @@ export default function routes($stateProvider) {
             url: '/home',
             template: require('./home.tpl.html'),
             controller: 'HomeController',
-            controllerAs: 'homeCtrl',
-            resolve: {
-            	resolvedUser: resolvedUser
-            }
+            controllerAs: 'homeCtrl'
         });
 }
-
-function resolvedUser(UserService) {
-    return UserService.auth.$waitForAuth();
-}
-
-resolvedUser.$inject = ['UserService'];

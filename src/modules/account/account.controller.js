@@ -1,6 +1,6 @@
 'use strict';
 
-export default class HomeController {
+export default class LoginController {
 
     constructor() {
     }

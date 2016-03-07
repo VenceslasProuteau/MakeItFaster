@@ -16,22 +16,23 @@ import history from './modules/history/module';
 import geolocation from './modules/geolocation/module';
 import user from './modules/user/module';
 import header from './modules/header/module';
+import account from './modules/account/module';
 var Firebase = require('firebase');
 
 // import components
 import components from './components/module';
 
-angular.module('app', [angularfire, toaster, uirouter, login, home, history, geolocation, user, header, components])
+angular.module('app', [angularfire, toaster, uirouter, login, home, history, geolocation, user, header, account, components])
     .config(routing)
     .run(runApp)
 
 
-runApp.$inject = ['$rootScope', '$location', '$state', 'SpinnerAPI'];
+runApp.$inject = ['$rootScope', '$location', '$state', 'SpinnerAPI', 'UserService'];
 
-function runApp($rootScope, $location, $state, SpinnerAPI) {
+function runApp($rootScope, $location, $state, SpinnerAPI, UserService, resolvedUser) {
     $rootScope.$state = $state;
     $rootScope.SpinnerAPI = SpinnerAPI;
-
+    
 	$rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
         // could do better, only used for back button for now ... 
         $rootScope.previousState = fromState.name;
@@ -41,7 +42,7 @@ function runApp($rootScope, $location, $state, SpinnerAPI) {
 
     $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
         if (error === "AUTH_REQUIRED") {
-            $state.go("app.login");
+            $state.go("login");
         }
     });
 

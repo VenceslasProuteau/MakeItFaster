@@ -2,10 +2,11 @@
 
 export default class LoginController {
 
-    constructor($state, $timeout, LoginAPI, toaster, SpinnerAPI) {
+    constructor($state, $timeout, LoginAPI, toaster, SpinnerAPI, UserService) {
         this.$state = $state;
         this.$timeout = $timeout;
 
+        this.UserService = UserService;
         this.LoginAPI = LoginAPI;
         this.toaster = toaster;
         this.SpinnerAPI = SpinnerAPI;
@@ -37,4 +38,4 @@ export default class LoginController {
     }
 }
 
-LoginController.$inject = ['$state', '$timeout', 'LoginAPI', 'toaster', 'SpinnerAPI'];
+LoginController.$inject = ['$state', '$timeout', 'LoginAPI', 'toaster', 'SpinnerAPI', 'UserService'];

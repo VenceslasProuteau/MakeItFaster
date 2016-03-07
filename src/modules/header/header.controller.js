@@ -4,12 +4,12 @@ export default class HeaderController {
 
     constructor(UserService, $state) {
         this.UserService = UserService;
-        this.user = this.UserService.$getAuth();
+        this.user = this.UserService.auth.$getAuth();
         this.$state = $state;
     }
 
     logout() {
-    	this.UserService.$unauth();
+    	this.UserService.auth.$unauth();
     	this.$state.go('login');
     }
 }

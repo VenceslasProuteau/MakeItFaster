@@ -2,43 +2,48 @@
 
 export default class LoginAPI {
 
-	constructor(UserService, $q, $state) {
+	constructor(UserService, $q) {
 		this.UserService = UserService;
 		this.$q = $q;
 	}
 
 	login(user) {
-		let deferred = this.$q.defer();
+		const deferred = this.$q.defer();
 
-		this.UserService.$authWithPassword({
+		this.UserService.auth.$authWithPassword({
 			email: user.mail,
 			password: user.password
-		}).then((authData) => {
-			this.UserService.user = authData;
-			deferred.resolve();
-		}).catch((error) => deferred.reject(error));
+		})
+		.then((response) => deferred.resolve(response))
+		.catch((error) => deferred.reject(error));
 
 		return deferred.promise;
 	}
 
 	logout() {
-		this.auth.$unauth();
+		this.UserService.auth.$unauth();
 	}
 
 	signup(user) {
-		let deferred = this.$q.defer();
+		const deferred = this.$q.defer();
 
-		this.UserService.$createUser({
+		return this.UserService.auth.$createUser({
 		  email: user.mail,
 		  password: user.password
-		}).then(function(userData) {
-		  deferred.resolve();
-		}).catch((error) => deferred.reject(error));
+		})
+		.then((response) => {
+			const storedUser = angular.extend({}, user, response);
+			this.UserService.setToDb(storedUser);
+
+			deferred.resolve(response);
+		})
+		.catch((error) => deferred.reject(error));
 
 		return deferred.promise;
+
 	}
 
 
 }
 
-LoginAPI.$inject = ['UserService', '$q', '$state', '$firebaseAuth'];
+LoginAPI.$inject = ['UserService', '$q'];

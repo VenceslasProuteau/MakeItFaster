@@ -16,7 +16,7 @@ export default function routes($stateProvider) {
 }
 
 function resolvedUser(UserService) {
-    return UserService.$waitForAuth();
+    return UserService.auth.$waitForAuth();
 }
 
 resolvedUser.$inject = ['UserService'];

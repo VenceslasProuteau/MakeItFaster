@@ -15,14 +15,14 @@
 	transform: translateY(-50%);
 
 	&__title-block {
-		border-bottom: solid 1px darken($color-blue, 20);
+		border-bottom: solid 1px $color-blue-light;
 		font-size: 2rem;
 		padding-bottom: 1rem;
 		font-weight: bold;
 		text-transform: uppercase;
 		text-align: center;
 		font-style: italic;
-		color: darken($color-blue, 20);
+		color: $color-blue-dark;
 
 		&::first-letter {
 			color: $color-red;
@@ -33,7 +33,7 @@
 		position: relative;
 		margin: 1rem 0;
 		height: 3.5rem;
-		background: lighten($color-blue, 5);
+		background: $color-blue-light;
 	}
 	&__block-wrapper {
 		padding: 2rem 0;
@@ -79,5 +79,31 @@
 
 	&__signup {
 		text-decoration: underline;
+	}
+}
+
+
+
+.account {
+	display: flex;
+	margin: 1rem 0;
+
+	&__block {
+		flex: 0 1 50%;
+
+		& + & {
+			margin-left: 2rem;
+		}
+	}
+
+	&__title {
+		text-align: center;
+		padding: 1rem;
+		background: $color-blue;
+		color: $color-light;
+	}
+
+	&__form {
+
 	}
 }

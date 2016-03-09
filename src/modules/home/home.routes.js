@@ -1,22 +1,21 @@
 'use strict';
 
-routes.$inject = ['$stateProvider'];
+routes.$inject = ['$stateProvider', 'uiGmapGoogleMapApiProvider'];
 
-export default function routes($stateProvider) {
+export default function routes($stateProvider, uiGmapGoogleMapApiProvider) {
     $stateProvider
         .state('app.home', {
             url: '/home',
             template: require('./home.tpl.html'),
             controller: 'HomeController',
             controllerAs: 'homeCtrl',
-            resolve: {
-            	resolvedUser: resolvedUser
+            data: {
+            	breadcrumbTitle: 'Accueil'
             }
         });
-}
 
-function resolvedUser(UserService) {
-    return UserService.auth.$waitForAuth();
+        uiGmapGoogleMapApiProvider.configure({
+           key: 'AIzaSyCF0cvDpW8VDeyYZrajuER1GTbxdYOLJss',
+           v: '3.20'
+       });
 }
-
-resolvedUser.$inject = ['UserService'];

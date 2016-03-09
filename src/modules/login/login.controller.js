@@ -16,7 +16,6 @@ export default class LoginController {
         this.SpinnerAPI.show();
     	this.LoginAPI.login(user).then((response) => {
     		this.$state.go('app.home');
-            this.SpinnerAPI.hide();
     	}).catch((error) => {
     		this.toaster.pop('error', "Connexion", "Adresse mail ou mot de passe invalide");	
     	}).finally(() => this.SpinnerAPI.hide());

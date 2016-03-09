@@ -1,6 +1,16 @@
 <div class="header">
 
-	<ul class="header-nav">
+	<div 
+		class="header__menu"
+		ng-click="headerCtrl.visibleMenu = !headerCtrl.visibleMenu">
+		<i class="icon-menu2"></i>
+		Menu
+	</div>
+	<div class="header__breadcrumb">
+		{{$state.current.data.breadcrumbTitle}}
+	</div>
+
+	<!-- <ul class="header-nav">
 		<li class="header-nav__item"
 			ng-if="$state.current.name !== 'app.home' ">
 			<a ui-sref="{{previousState}}">
@@ -29,7 +39,7 @@
 				<img src="https://image.freepik.com/free-vector/woman-avatar_23-2147501833.jpg" />
 			</div>
 			<div class="header-user-resume">
-				<span>{{:: headerCtrl.user.password.email}}</span>
+				<span>{{user.mail}}</span>
 				<span>Fonction</span>
 			</div>
 			<i class="icon-chevron-thin-down"></i>
@@ -37,12 +47,55 @@
 		<div 
 			class="header-navDropdown"
 			ng-class="{'header-navDropdown--isActive': headerCtrl.navActive}">
-			<div class="header-navDropdown__block">
+			<a 
+				ui-sref="app.account"
+				class="header-navDropdown__block">
 				<i class="icon-cog"></i>
 				<span>Mon compte</span>
-			</div>
+			</a>
 			<a ng-click="headerCtrl.logout()" class="header-navDropdown__block header-navDropdown__block--row"><i class="icon-switch"></i>Déconnexion</a>
 		</div>
 	</div>
+ -->
 
+
+</div>
+
+<div class="header-visibleMenu" ng-show="headerCtrl.visibleMenu">
+	<div 
+		ng-click="headerCtrl.changeView('app.home')"
+		ng-if="currentState !== 'app.home'"
+		class="header-visibleMenu__block">
+		<i class="icon-home header-visibleMenu__block-icon"></i>
+		<span class="header-visibleMenu__block-title">Accueil</span>
+	</div>
+
+	<div 
+		ng-click="headerCtrl.changeView('app.account')"
+		ng-if="currentState !== 'app.account'"
+		class="header-visibleMenu__block">
+		<i class="icon-cog header-visibleMenu__block-icon"></i>
+		<span class="header-visibleMenu__block-title">Mon compte</span>
+	</div>
+
+	<div class="header-visibleMenu__block">
+		<i class="icon-cog header-visibleMenu__block-icon"></i>
+		<span class="header-visibleMenu__block-title">Mon historique</span>
+	</div>
+
+	<div class="header-visibleMenu__block">
+		<i class="icon-cog header-visibleMenu__block-icon"></i>
+		<span class="header-visibleMenu__block-title">Autre catégorie</span>
+	</div>
+
+	<div class="header-visibleMenu__block">
+		<i class="icon-cog header-visibleMenu__block-icon"></i>
+		<span class="header-visibleMenu__block-title">Autre catégorie</span>
+	</div>
+
+	<div 
+		class="header-visibleMenu__close"
+		ng-click="headerCtrl.visibleMenu = false">
+		<i class="icon-close"></i>
+	</div>
 </div>

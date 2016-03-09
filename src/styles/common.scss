@@ -10,6 +10,7 @@
     "modules/forms",
     "modules/toaster",
     "modules/spinner",
+    "modules/home",
     "modules/login";
 
 * {
@@ -67,13 +68,8 @@ body {
     }
 
     &__header-container {
-        height: 8rem;
+        height: 5rem;
         background-color: $color-blue;
-    }
-
-    &__content {
-        max-width: 1368px;
-        margin: 0 auto;
     }
 
     &--login {
@@ -97,4 +93,8 @@ body {
 
 label.ng-invalid, input.ng-invalid{
     box-shadow: 0 0 5px 1px red;
+}
+
+.angular-google-map-container {
+    height: 50rem;
 }

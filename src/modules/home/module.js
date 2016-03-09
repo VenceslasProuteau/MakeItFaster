@@ -6,7 +6,7 @@ import uirouter from 'angular-ui-router';
 import HomeController from './home.controller';
 import routing from './home.routes';
 
-export default angular.module('app.home', [uirouter])
+export default angular.module('app.home', [uirouter, 'uiGmapgoogle-maps', 'nemLogging'])
     .config(routing)
     .controller('HomeController', HomeController)
     .name;

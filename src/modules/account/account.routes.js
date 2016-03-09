@@ -9,6 +9,9 @@ export default function routes($stateProvider) {
             template: require('./account.tpl.html'),
             controller: 'AccountController',
             controllerAs: 'accountCtrl',
+            data: {
+                breadcrumbTitle: 'Mon compte'
+            },
             resolve: {
             	resolvedUser: function(UserService) {
             		return UserService.auth.$requireAuth();            			

@@ -1,12 +1,94 @@
 .header {
 	
-	max-width: 1368px;
-	margin: 0 auto;
 	color: $color-light;
 
 	height: 100%;
 	display: flex;
-	align-items: stretch;
+	align-items: center;
+
+
+	&__menu {
+		display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    justify-content: center;
+	    height: 100%;
+	    border-bottom: solid 3px $color-blue-dark;
+	    border-right: solid 1px $color-blue-dark;
+	    color: $color-light;
+	    text-transform: uppercase;
+	    padding: .5rem 1.3rem;
+    	font-size: .8rem;
+	    cursor: pointer;
+
+	    > i {
+	    	font-size: 1.8rem;
+	    	margin-bottom: .3rem;
+	    }
+	}
+
+	&__breadcrumb {
+	    margin-left: 1rem;
+	    text-transform: uppercase;
+	}
+
+
+
+	&-visibleMenu {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+	    justify-content: center;
+
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom:0;
+		left:0;
+		margin:0 auto;
+		padding: 15%;
+		z-index: 1;
+		
+		color: $color-dark;
+		background-color: rgba($color-light, .95);
+
+		&__block {
+			display: flex;
+			flex: 0 1 50%;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
+			cursor: pointer;
+			text-transform: uppercase;
+			height: 8rem;
+			background: none;
+			transition: background ease-in .3s;
+
+			> i {
+			    font-size: 2.5rem;
+			}
+
+			&:hover {
+				background: rgba(darken($color-light, 10) , .1);
+			}
+		}
+
+		&__close {
+		    position: absolute;
+		    cursor: pointer;
+		    bottom: 1rem;
+		    right: 1rem;
+		    font-size: 2.5rem;
+		}
+	}
+
+
+
+
+
+
+
+
 
 	&-nav {
 		display: flex;
@@ -14,7 +96,7 @@
 		align-items: flex-end;
 
 		&__item {
-			background: lighten($color-blue, 5);
+			background: darken($color-blue, 5);
 			padding: 1rem;
 			border-radius: .3rem .3rem 0 0;
 
@@ -53,7 +135,7 @@
     	align-items: center;
     	justify-content: space-between;
 
-    	background: lighten($color-blue, 5);
+    	background: darken($color-blue, 5);
     	padding: 1rem;
 	}
 
@@ -85,8 +167,8 @@
 		max-height: 0;
 		
 		overflow: hidden;
-		background: lighten($color-blue, 5);
-		border-top: solid 1px lighten($color-blue, 10);
+		background: darken($color-blue, 5);
+		border-top: solid 1px $color-blue-dark;
 		transition: max-height ease .3s;
 		&--isActive {
 			max-height: 30rem;

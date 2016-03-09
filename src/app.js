@@ -17,6 +17,11 @@ import geolocation from './modules/geolocation/module';
 import user from './modules/user/module';
 import header from './modules/header/module';
 import account from './modules/account/module';
+
+import 'lodash';
+import 'angular-simple-logger';
+import 'angular-google-maps';
+
 var Firebase = require('firebase');
 
 // import components

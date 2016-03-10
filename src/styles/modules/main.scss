@@ -1,0 +1,134 @@
+.app {
+	
+	&-aside {
+		position: relative;
+
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+
+	    width: 300px;
+		background: $color-blue;
+		color: darken($color-blue-dark, 10);
+		border-right: solid 1px $color-blue-light;
+
+		font-size: .9rem;
+	    font-weight: bold;
+	    z-index: 1060;
+
+	    visibility: hidden;
+	    transform: translateX(-275px);
+	    transition-delay: .1s;
+	    transition-duration: .2s;
+	    transition-property: visibility, transform;
+	    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+
+	    will-change: transform, visibility;
+
+		&__block {
+			display: flex;
+			align-items: center;
+
+			padding: 1rem;
+		    margin: .2rem .5rem;
+			background: $color-blue-light;
+
+			cursor: pointer;
+			text-transform: uppercase;
+
+
+			&--user {
+				height: 12rem;
+				margin: .5rem 0;
+
+				background: $color-blue;
+				border-bottom: solid 1px $color-blue-dark;
+			}
+
+			&--logout {
+				position: absolute;
+				bottom: .5rem;
+				left: 0;
+				right: 0;
+			}
+
+			&--isActive {
+				background: $color-blue;
+				color: darken($color-blue-dark, 10);
+			}
+
+			> i {
+				font-size: 1.3rem;
+				margin-right: 1rem;
+			}
+		}
+
+		&--visible {
+	        transform: translateX(0);
+	        visibility: visible;
+	    }
+
+		@media (min-width: 1024px) {
+	        transform: translateZ(0);
+	        visibility: visible;
+	        z-index: 0;
+	    }
+	}
+
+	&-main {
+		display: flex;
+		flex-direction: column;
+	   	position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    right: 0;
+	    left: 0;
+		transition: left .2s .05s cubic-bezier(.4,0,.2,1);
+		will-change: left;
+
+		&__navigation {
+			display: flex;
+			align-items: center;
+			height: 4.375rem;
+			box-shadow: 0 1px 5px $color-grey;
+		}
+
+		&__menu {
+			display: flex;
+		    flex-direction: column;
+		    align-items: center;
+		    justify-content: center;
+		    height: 100%;
+		    border-bottom: solid 5px $color-blue-dark;
+		    border-right: solid 1px $color-blue-dark;
+		    text-transform: uppercase;
+		    padding: .5rem 1.2rem;
+			font-size: .8rem;
+		    cursor: pointer;
+
+		    > i {
+		    	font-size: 1.5rem;
+		    	margin-bottom: .3rem;
+		    }
+
+		    @media (min-width: 1024px) {
+				display: none;
+			}
+		}
+
+		&__breadcrumb-title {
+			padding-left: 1rem;
+			text-transform: uppercase;
+		}
+
+		@media (min-width: 1024px) {
+			transition-delay: .1s;
+			left: 300px;
+		}
+	}
+
+}

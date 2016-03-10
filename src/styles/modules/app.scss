@@ -1,0 +1,8 @@
+.app {
+	display: flex;
+	height: 100%;
+
+	&--login {
+		background: $color-blue;
+	}
+}

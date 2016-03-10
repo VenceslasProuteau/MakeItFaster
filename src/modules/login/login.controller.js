@@ -2,9 +2,10 @@
 
 export default class LoginController {
 
-    constructor($state, $timeout, LoginAPI, toaster, SpinnerAPI, UserService) {
+    constructor($state, $timeout, $rootScope, LoginAPI, toaster, SpinnerAPI, UserService) {
         this.$state = $state;
         this.$timeout = $timeout;
+        this.$rootScope = $rootScope;
 
         this.UserService = UserService;
         this.LoginAPI = LoginAPI;
@@ -14,7 +15,8 @@ export default class LoginController {
 
     login(user) {
         this.SpinnerAPI.show();
-    	this.LoginAPI.login(user).then((response) => {
+    	this.LoginAPI.login(user).then((user) => {
+            this.$rootScope.user = user;
     		this.$state.go('app.home');
     	}).catch((error) => {
     		this.toaster.pop('error', "Connexion", "Adresse mail ou mot de passe invalide");	
@@ -24,11 +26,11 @@ export default class LoginController {
     signup(user) {
         this.SpinnerAPI.show();
     	this.LoginAPI.signup(user)
-    		.then((response) => {
+    		.then(() => {
     			let self = this;
     			this.$timeout(function () {
-				    self.toaster.pop('success', 'Inscription', 'Votre compte a bien été créé !');
-				 }, 0);
+                    self.toaster.pop('success', 'Inscription', 'Votre compte a bien été créé !');
+			    }, 0);
     			this.$state.go('login');
                 this.SpinnerAPI.hide();
     		}).catch((error) => {
@@ -37,4 +39,4 @@ export default class LoginController {
     }
 }
 
-LoginController.$inject = ['$state', '$timeout', 'LoginAPI', 'toaster', 'SpinnerAPI', 'UserService'];
+LoginController.$inject = ['$state', '$timeout', '$rootScope', 'LoginAPI', 'toaster', 'SpinnerAPI', 'UserService'];

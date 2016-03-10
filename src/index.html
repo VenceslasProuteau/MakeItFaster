@@ -1,19 +1,22 @@
 <!doctype html>
 <html ng-app="app" lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Angular App</title>
-  <base href="/">
-</head>
-<body>
-	<spinner 
-		class="spinner"
-		ng-show="SpinnerAPI.visible()">
-	</spinner>
-	<toaster-container></toaster-container>
-    <ui-view 
-    	class="layout-app"
-    	ng-class="{'layout-app--login': $state.current.name === 'login' || $state.current.name === 'signup'}">
-    </ui-view>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Angular App</title>
+        <base href="/">
+    </head>
+    <body>
+        <spinner 
+            class="spinner"
+            ng-show="SpinnerAPI.visible()">
+        </spinner>
+        <toaster-container></toaster-container>
+
+
+        <div 
+            class="app"
+            ui-view="main"
+            ng-class="{'app--login': $state.current.name === 'login' || $state.current.name === 'signup'}">
+        </div>
+    </body>
 </html>

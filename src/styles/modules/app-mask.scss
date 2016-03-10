@@ -1,0 +1,36 @@
+//
+//== Mask
+//------------------------------------------------------------------------------
+
+//
+// Global mask
+// avis-mask
+.app-mask {
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    transition: visibility 0s linear .4s,
+    opacity.4s cubic-bezier(.4, 0, .2, 1);
+    will-change: visibility, opacity;
+
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1039;
+
+    background-color: rgba(0, 0, 0, .5);
+
+    width: 100%;
+    height: 100%;
+
+    // app-mask--visible
+    &--visible {
+        transition-delay: .2s;
+
+        visibility: visible;
+        opacity: 1;
+    }
+}

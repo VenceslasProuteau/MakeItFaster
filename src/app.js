@@ -10,12 +10,13 @@ import uirouter from 'angular-ui-router';
 import toaster from 'angularjs-toaster';
 
 import routing from './app.config';
+
+import main from './modules/main/module';
 import login from './modules/login/module';
 import home from './modules/home/module';
 import history from './modules/history/module';
 import geolocation from './modules/geolocation/module';
 import user from './modules/user/module';
-import header from './modules/header/module';
 import account from './modules/account/module';
 
 import 'lodash';
@@ -27,7 +28,7 @@ var Firebase = require('firebase');
 // import components
 import components from './components/module';
 
-angular.module('app', [angularfire, toaster, uirouter, login, home, history, geolocation, user, header, account, components])
+angular.module('app', [angularfire, toaster, uirouter, login, home, history, geolocation, user, account, components, main])
     .config(routing)
     .run(runApp)
 

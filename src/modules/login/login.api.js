@@ -15,7 +15,8 @@ export default class LoginAPI {
 			password: user.password
 		}, {rememberMe: true})
 		.then((user) => {
-			deferred.resolve(user);
+			const storedUser = this.UserService.getStoredUser(user.uid);
+			deferred.resolve(storedUser);
 		})
 		.catch((error) => deferred.reject(error));
 
@@ -34,10 +35,9 @@ export default class LoginAPI {
 		  password: user.password
 		})
 		.then((response) => {
-			const storedUser = angular.extend({}, user, response);
+			const storedUser = Object.assign({}, user, response);
 			this.UserService.setToDb(storedUser);
-
-			deferred.resolve(response);
+			deferred.resolve();
 		})
 		.catch((error) => deferred.reject(error));
 

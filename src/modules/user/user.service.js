@@ -10,15 +10,14 @@ export default class UserService {
 
 	setToDb(user) {
 		this.ref.child("users").child(user.uid).set({
-			mail: user.mail
+			mail: user.mail,
+			firstName: user.firstName,
+			lastName: user.lastName
 		});
 	}
 
-	getUser(userId) {
-		const obj = this.$firebaseObject(this.ref.child('users').child(userId));
-		const self = this;
-		
-		return obj.$loaded().then((response) => response);
+	getStoredUser(userId) {
+		return this.$firebaseObject(this.ref.child('users').child(userId));
 	}
 
 }

@@ -1,0 +1,62 @@
+<div 
+	class="app-aside"
+	ng-class="{'app-aside--visible' : $root.isAsideOffcanvasVisible}"
+	>
+	<div class="app-aside__block app-aside__block--user">
+		{{$root.user.firstName}} {{$root.user.lastName}}
+	</div>
+	<a
+		ui-sref="app.home"
+		ng-class="{'app-aside__block--isActive': currentState === 'app.home'}"
+		class="app-aside__block">
+		<i class="icon-home"></i>
+		Accueil
+	</a>
+	<a 
+		ui-sref="app.account"
+		ng-class="{'app-aside__block--isActive': currentState === 'app.account'}"
+		class="app-aside__block">
+		<i class="icon-cog"></i>
+		Gérer mon compte
+	</a>
+	<a 
+		class="app-aside__block">
+		<i class="icon-cart"></i>
+		Autre catégorie
+	</a>
+	<div 
+		ng-click="mainCtrl.logout()"
+		class="app-aside__block app-aside__block--logout">
+		<i class="icon-switch"></i>
+		Déconnexion
+	</div>
+
+</div>
+
+<div class="app-main">
+	<div class="app-main__container">
+		<nav class="app-main__navigation">
+			<div 
+				class="app-main__menu"
+				ng-click="$root.showTheOffCanvas()">
+				<i class="icon-menu2"></i>
+				Menu
+			</div>
+			<span class="app-main__breadcrumb-title">{{$state.current.data.breadcrumbTitle}}</span>
+		</nav>
+		<div ui-view>
+
+		</div>
+	</div>
+</div>
+
+
+<!--
+-- Add a global modal mask here
+-->
+<div class="app-mask"
+     ng-click="$root.onModalMaskClick(); $event.preventDefault()"
+     ng-class="{
+       'app-mask--visible' : $root.isModalMaskVisible
+    }"
+    ></div>

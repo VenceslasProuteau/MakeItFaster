@@ -17,11 +17,12 @@ export default angular.module('app.main', [uirouter])
 
 
 
+
+modalMaskEventConfig.$inject = ['$rootScope'];
 /**
  *
  * Part of the main modal mask
  *
- * @ngInject
  */
 function modalMaskEventConfig($rootScope) {
 
@@ -49,11 +50,12 @@ function modalMaskEventConfig($rootScope) {
 
 }
 
+
+toggleOffCanvasButtonConfig.$inject = ['$rootScope'];
 /**
  *
  * Part of the navbar
  *
- * @ngInject
  */
 function toggleOffCanvasButtonConfig($rootScope) {
     // Following the main#modalMaskEventConfig
@@ -72,11 +74,12 @@ function toggleOffCanvasButtonConfig($rootScope) {
     };
 }
 
+
+hideCanvas.$inject = ['$rootScope'];
 /**
  *
  * hideCanvas when you change state
  *
- * @ngInject
  */
 function hideCanvas($rootScope) {
     $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams) {

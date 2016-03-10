@@ -5,13 +5,13 @@ export default class GeolocationService {
 	constructor($q, $window) {
 		this.$q = $q;
 		this.$window = $window;
-        this.defaultMarker = {
-            isUserPosition: false,
-            id: 415,
-            icon: '//developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-            coords: {},
-            zoom: 11
-        };
+    this.defaultMarker = {
+        isUserPosition: false,
+        id: 415,
+        icon: '//developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+        coords: {},
+        zoom: 11
+    };
 	}
 
 		/**

@@ -8,8 +8,6 @@ export default function routes($stateProvider) {
             url: '/history',
             template: require('./history.tpl.html'),
             controller: 'HistoryController',
-            controllerAs: 'historyCtrl',
-            resolve: {
-            }
+            controllerAs: 'historyCtrl'
         });
 }

@@ -14,8 +14,10 @@ export default function routes($stateProvider) {
             },
             resolve: {
             	resolvedUser: function(UserService) {
-            		return UserService.auth.$requireAuth();            			
+            		return UserService.auth.$requireAuth();
+                    resolvedUser.$inject = ['UserService'];          			
             	}
+
             }
         })
 }

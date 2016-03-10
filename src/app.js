@@ -35,7 +35,7 @@ angular.module('app', [angularfire, toaster, uirouter, login, home, history, geo
 
 runApp.$inject = ['$rootScope', '$location', '$state', 'SpinnerAPI', 'UserService'];
 
-function runApp($rootScope, $location, $state, SpinnerAPI, UserService, resolvedUser) {
+function runApp($rootScope, $location, $state, SpinnerAPI, UserService) {
     $rootScope.$state = $state;
     $rootScope.SpinnerAPI = SpinnerAPI;
     

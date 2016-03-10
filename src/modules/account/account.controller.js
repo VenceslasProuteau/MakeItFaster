@@ -1,6 +1,6 @@
 'use strict';
 
-export default class LoginController {
+export default class AccountController {
 
     constructor() {
     }

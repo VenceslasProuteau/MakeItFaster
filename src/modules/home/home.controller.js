@@ -4,6 +4,45 @@ export default class HomeController {
 
     constructor($window, GeolocationService, toaster) {
 
+
+        this.stores = [
+
+            {
+                name: 'Carrefour Issy-Gare SNCF',
+                quartier: 'Gare SNCF',
+                ville: 'Issy les moulineaux',
+                adresse: '1 rue de la gare',
+                imageURL: '',
+                coords: {
+                    latitude: 40.891304999999996,
+                    longitude: 1.3729866999999998
+                }
+            },
+            {
+                name: 'Carrefour Issy-Epinettes',
+                quartier: 'Epinettes',
+                ville: 'Issy les moulineaux',
+                adresse: '7 rue des peupliers',
+                imageURL: '',
+                coords: {
+                    latitude: 40.891304999999996,
+                    longitude: 1.3929866999999998
+                }
+            },
+            {
+                name: 'Carrefour Fleury',
+                quartier: 'Val fleury',
+                ville: 'Meudon sur seine',
+                adresse: '1 rue de Fleury',
+                imageURL: '',
+                coords: {
+                    latitude: 40.891304999999996,
+                    longitude: 1.3529866999999998
+                }
+            }
+
+        ];
+
     	this.userMarker = {};
     	this.markers = [];
     	var self = this;

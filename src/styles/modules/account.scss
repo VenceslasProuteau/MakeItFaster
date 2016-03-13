@@ -1,0 +1,27 @@
+.account {
+	display: flex;
+
+	&__actions {
+		display: flex;
+		justify-content: flex-end;
+		padding: .5rem;
+	}
+	&__form {
+		display: flex;
+	}
+
+	&__block {
+		flex: 0 1 50%;
+		padding: .5rem;
+
+		& + & {
+			margin-left: .5rem;
+		}
+	}
+
+	&__title {
+		padding: 2rem;
+		background: $color-red;
+		color: $color-light;
+	}
+}

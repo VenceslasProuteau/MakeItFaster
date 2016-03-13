@@ -8,16 +8,18 @@ export default class UserService {
 		this.auth = $firebaseAuth(this.ref);
 	}
 
-	setToDb(user) {
+	save(user) {
 		this.ref.child("users").child(user.uid).set({
 			mail: user.mail,
 			firstName: user.firstName,
-			lastName: user.lastName
+			lastName: user.lastName,
+			uid: user.uid
 		});
 	}
 
-	getStoredUser(userId) {
-		return this.$firebaseObject(this.ref.child('users').child(userId));
+	getUser(userId) {
+		return this.$firebaseObject(this.ref.child('users').child(userId))
+			.$loaded().then((user) => this.user = user);
 	}
 
 }

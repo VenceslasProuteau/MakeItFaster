@@ -10,27 +10,27 @@
 		<div class="login__sentence"><b>Bienvenue.</b> Créez rapidement votre compte <span class="login__brand">Make It Faster.</span></div>
 
 		<div class="login__block">
-			<input type="text" name="firstName" id="firstName" ng-model="user.firstName" class="input input login__input" placeholder="Prénom" required/>
+			<input type="text" name="firstName" id="firstName" ng-model="user.signup.firstName" class="input input login__input" placeholder="Prénom" required/>
 		</div>
 
 		<div class="login__block">
-			<input type="text" name="lastName" id="lastName" ng-model="user.lastName" class="input input login__input" placeholder="Nom" required/>
+			<input type="text" name="lastName" id="lastName" ng-model="user.signup.lastName" class="input input login__input" placeholder="Nom" required/>
 		</div>
 
 		<div class="login__block">
-			<input type="email" name="email" id="email" ng-model="user.mail" class="input label login__input" placeholder="Adresse email" ng-pattern="/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/" required/>
+			<input type="email" name="email" id="email" ng-model="user.signup.mail" class="input label login__input" placeholder="Adresse email" ng-pattern="/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/" required/>
 		</div>
 
 		<div class="login__block">
-			<input type="password" name="password" id="password" ng-model="user.password" class="input input login__input" placeholder="Mot de passe" required/>
+			<input type="password" name="password" id="password" ng-model="user.signup.password" class="input input login__input" placeholder="Mot de passe" required/>
 		</div>
 
 		<div class="login__block">
-			<input type="password" name="confirmPassword" id="confirmPassword" ng-model="user.passwordConfirm" class="input input login__input" placeholder="Confirmation mot de passe" required compare-to="user.password"/>
+			<input type="password" name="confirmPassword" id="confirmPassword" ng-model="user.signup.passwordConfirm" class="input input login__input" placeholder="Confirmation mot de passe" required compare-to="user.signup.password"/>
 		</div>
 
 		<div class="login__validate">
-			<button class="button button--action button--w100" ng-click="loginCtrl.signup(user)" ng-disabled="loginForm.$invalid">Valider les informations</button>
+			<button class="button button--login button--w100" ng-click="loginCtrl.signup(user)" ng-disabled="loginForm.$invalid">Valider les informations</button>
 		</div>
 	</div>
 
@@ -47,7 +47,7 @@
 		</div>
 
 		<div class="login__validate">
-			<button class="button button--action button--w100" ng-click="loginCtrl.login(user)" ng-disabled="loginForm.$invalid">Se connecter</button>
+			<button class="button button--login button--w100" ng-click="loginCtrl.login(user)" ng-disabled="loginForm.$invalid">Se connecter</button>
 		</div>
 		<div class="login__bottom-infos">
 			<a ui-sref="login"><i class="icon-key"></i> Mot de passe oublié ?</a>

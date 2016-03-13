@@ -1,9 +1,12 @@
 $color-grey: #eaeaec;
-$color-grey-dark: #5e6675;
+$color-grey-dark: darken($color-grey, 10);
+
 $color-red: rgb(220, 78, 65);
+$color-red-dark: darken($color-red, 10);
+
 $color-blue: #00b3e6;
-$color-blue-dark: #008bb3;
-$color-blue-light: #00bff5;
+$color-blue-light: lighten($color-blue, 3);
+$color-blue-dark: darken($color-blue, 10);
 
 $color-light: #fff;
 $color-dark: #000;

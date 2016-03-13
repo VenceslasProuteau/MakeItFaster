@@ -15,7 +15,7 @@ export default class LoginAPI {
 			password: user.password
 		}, {rememberMe: true})
 		.then((user) => {
-			const storedUser = this.UserService.getStoredUser(user.uid);
+			const storedUser = this.UserService.getUser(user.uid);
 			deferred.resolve(storedUser);
 		})
 		.catch((error) => deferred.reject(error));
@@ -30,16 +30,19 @@ export default class LoginAPI {
 	signup(user) {
 		const deferred = this.$q.defer();
 
-		return this.UserService.auth.$createUser({
-		  email: user.mail,
-		  password: user.password
+		this.UserService.auth.$createUser({
+		  email: user.signup.mail,
+		  password: user.signup.password
 		})
 		.then((response) => {
-			const storedUser = Object.assign({}, user, response);
-			this.UserService.setToDb(storedUser);
+			console.log(response);
+			const storedUser = Object.assign({}, user.signup, response);
+			this.UserService.save(storedUser);
 			deferred.resolve();
 		})
-		.catch((error) => deferred.reject(error));
+		.catch((error) => {
+			deferred.reject(error);
+		});
 
 		return deferred.promise;
 

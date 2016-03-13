@@ -90,13 +90,53 @@
 		transition: left .2s .05s cubic-bezier(.4,0,.2,1);
 		will-change: left;
 
-		&__navigation {
-			display: flex;
-			align-items: center;
-			height: 4.375rem;
-			box-shadow: 0 1px 5px $color-grey;
+		&-nav {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: auto;
+			z-index: 1000;
+
+			&__container {
+				display: flex;
+				align-items: center;
+				height: 4.375rem;
+				color: $color-blue-dark;
+				box-shadow: 0 1px 5px $color-grey;
+			}
 		}
 
+		&__actions {
+			display: flex;
+			align-items: center;
+			box-shadow: 0 1px 5px $color-grey;
+			padding: 0 .875rem;
+			height: 4.375rem;
+		}
+
+		&__wrapper {
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 4.375rem;
+
+			&--actions {
+				top: 8.75rem;
+				padding: .875rem;
+			}
+
+			padding: 1rem;
+			background: $color-grey;
+		}
+
+		&__content {
+			background: $color-light;
+			transform: translateZ(0);
+			min-height: 100%;
+		}
+		
 		&__menu {
 			display: flex;
 		    flex-direction: column;

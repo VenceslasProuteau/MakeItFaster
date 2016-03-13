@@ -2,12 +2,11 @@
 
 export default class MainController {
 
-    constructor($state, $rootScope, $firebaseObject, UserService, resolvedUser) {
+    constructor($state, $firebaseObject, UserService, resolvedUser) {
         this.$state = $state;
-        this.UserService = UserService;
 
-		const user = $firebaseObject(UserService.ref.child('users').child(resolvedUser.uid));
-		user.$bindTo($rootScope, 'user');
+        this.UserService = UserService;
+		this.user = resolvedUser;
     }
 
     logout() {
@@ -17,4 +16,4 @@ export default class MainController {
 
 }
 
-MainController.$inject = ['$state', '$rootScope', '$firebaseObject', 'UserService', 'resolvedUser'];
+MainController.$inject = ['$state', '$firebaseObject', 'UserService', 'resolvedUser'];

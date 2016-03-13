@@ -3,7 +3,7 @@
 	ng-class="{'app-aside--visible' : $root.isAsideOffcanvasVisible}"
 	>
 	<div class="app-aside__block app-aside__block--user">
-		{{$root.user.firstName}} {{$root.user.lastName}}
+		{{mainCtrl.user.firstName}} {{mainCtrl.user.lastName}}
 	</div>
 	<a
 		ui-sref="app.home"
@@ -35,17 +35,24 @@
 
 <div class="app-main">
 	<div class="app-main__container">
-		<nav class="app-main__navigation">
-			<div 
-				class="app-main__menu"
-				ng-click="$root.showTheOffCanvas()">
-				<i class="icon-menu2"></i>
-				Menu
+		<nav class="app-main-nav">
+			<div class="app-main-nav__container">
+				<div 
+					class="app-main__menu"
+					ng-click="$root.showTheOffCanvas()">
+					<i class="icon-menu2"></i>
+					Menu
+				</div>
+				<span class="app-main__breadcrumb-title">{{$state.current.data.breadcrumbTitle}}</span>
 			</div>
-			<span class="app-main__breadcrumb-title">{{$state.current.data.breadcrumbTitle}}</span>
+			<div ui-view="actions" class="app-main__actions" ng-show="$state.current.data.hasActions">
+				
+			</div>
 		</nav>
-		<div ui-view>
+		<div class="app-main__wrapper" ng-class="{'app-main__wrapper--actions': $state.current.data.hasActions}">
+			<div ui-view="content" class="app-main__content">
 
+			</div>
 		</div>
 	</div>
 </div>

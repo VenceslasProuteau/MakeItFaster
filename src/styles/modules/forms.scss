@@ -1,45 +1,3 @@
-
-// BUTTONS
-
-.button {
-    -webkit-user-select: none !important;
-    -moz-user-select: none !important;
-    -ms-user-select: none !important;
-    user-select: none !important;
-    display: inline-block;
-    cursor: pointer;
-    height: auto;
-    line-height: normal;
-    text-transform: uppercase;
-    text-align: center;
-    color: #fff;
-    border-radius: 2px;
-    box-shadow: 0 0 2px 0 rgba(0,0,0,.2);
-    padding: 1rem 1.5rem;
-    font-size: 1.2rem;
-    transition: all ease-in .3s;
-    border: none;
-    border-radius: .2rem;
-
-    &--action {
-    	background-color: $color-red;
-    	&:hover {
-    		background-color: darken($color-red, 5);
-    	}
-    }
-
-    &--w100 {
-        width: 100%;
-    }
-}
-
-
-// LABELS
-
-.label {
-	
-}
-
 // INPUTS
 
 input {    
@@ -47,8 +5,10 @@ input {
   font-style: normal;
   border: none;
   font-size: .9rem;
-  padding: .5rem;
+  padding: .8rem;
   border-radius: .2rem;
+  border: solid 1px $color-blue;
+  color: $color-dark;
 	-webkit-user-select: none !important;
     -moz-user-select: none !important;
     -ms-user-select: none !important;
@@ -60,25 +20,25 @@ input:placeholder-shown {
     opacity: 0.8;
 }
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color: $color-light;
+    color: $color-dark;
     font-family: 'RalewayLight';
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color: $color-light;
+   color: $color-dark;
    font-family: 'RalewayLight';
    opacity:  1;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color: $color-light;
+   color: $color-dark;
    font-family: 'RalewayLight';
    opacity:  1;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color: $color-light;
+   color: $color-dark;
    font-family: 'RalewayLight';
 }
 :placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
-  color: $color-light;
+  color: $color-dark;
   font-family: 'RalewayLight';
 }
 

@@ -8,6 +8,8 @@
 
     "modules/app",
     "modules/app-mask",
+    "modules/account",
+    "modules/buttons",
     "modules/main",
     "modules/forms",
     "modules/toaster",
@@ -54,49 +56,6 @@ body {
     padding: 0;
 }
 
-.layout-app {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    align-items: stretch;
-
-    &__footer-container {
-        padding: 2rem;
-        background: $color-blue;
-    }
-    
-    &__main-container {
-        height: 100%;
-    }
-
-    &__header-container {
-        height: 5rem;
-        background-color: $color-blue;
-    }
-
-    &--login {
-        background-color: $color-blue;
-    }
-}
-
-
-// Users
-.users {
-	display: flex;
-}
-
-.user {
-	flex-basis: 50%;
-
-	margin: .5rem;
-	padding: 1rem;
-	border: solid 1px #aeaeae;
-}
-
 label.ng-invalid, input.ng-invalid{
     box-shadow: 0 0 5px 1px red;
-}
-
-.angular-google-map-container {
-    height: 50rem;
 }

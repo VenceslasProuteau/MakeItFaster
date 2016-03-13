@@ -1,16 +1,29 @@
 <div class="home">
 
-<!-- 	<div class="home__search">
+ 	<!-- <div class="home__search">
 		<label for="citySearch">Rechercher un 'Carrefour' précis: </label>
-		<select id="citySearch">
-			<option value="foo"></option>
-			<option value="bar"></option>
-		</select>
-	</div>
+		<select 
+			ng-model="selectedStore"
+			ng-init="homeCtrl.stores[0]"
+			ng-options="store.name group by store.ville for store in homeCtrl.stores">
+    	</select>
+	</div> -->
 
 	<div class="home__content-wrapper">
 		<div class="home__aside">
-			Aside col
+			<div 
+				class="home__store"
+				ng-repeat="store in homeCtrl.stores">
+
+				<div class="home__store-header">
+					{{::store.name}}
+				</div>
+				<div class="home__store-resume">
+					<span>{{::store.ville}}</span>
+					<span>{{::store.adresse}}</span>
+				</div>
+
+			</div>
 		</div>
 		<div class="home__aside home__aside--gmaps">
 			<ui-gmap-google-map center='homeCtrl.centerMap.coords' zoom='homeCtrl.userMarker.zoom'>
@@ -22,6 +35,6 @@
 			</ui-gmap-google-map>
 		</div>
 
-	</div> -->
+	</div>
 
 </div>

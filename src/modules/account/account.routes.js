@@ -14,11 +14,6 @@ export default function routes($stateProvider) {
                     template: require('./actions.tpl.html'),
                     controller: 'AccountController',
                     controllerAs: 'accountCtrl'
-                },
-                'content@app': {
-                    template: require('./account.tpl.html'),
-                    controller: 'AccountController',
-                    controllerAs: 'accountCtrl'
                 }
             }
         })

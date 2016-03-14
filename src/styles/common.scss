@@ -20,22 +20,6 @@
 * {
     font-family: "RalewayLight", Helvetica, Arial, sans-serif;
 }
-html {
-    font-weight: 400;
-    font-size: 100%;
-    font-style: normal;
-    font-family: "RalewayLight", Helvetica, Arial, sans-serif;
-    color: $color-grey-dark;
-    background-color: $color-light;
-}
-
-// debug angular
-.ng-animate-start,
-.ng-animate-active {
-    border-collapse: collapse;
-    border-spacing: none;
-    -ms-zoom: auto;
-}
 
 // Adjust page size to device width in virtual pixels
 // on mobile Internet Explorer (e.g. Surface):
@@ -56,6 +40,19 @@ body {
     padding: 0;
 }
 
-label.ng-invalid, input.ng-invalid{
-    box-shadow: 0 0 5px 1px red;
+html {
+    font-weight: 400;
+    font-size: 100%;
+    font-style: normal;
+    font-family: "RalewayLight", Helvetica, Arial, sans-serif;
+    color: $color-grey-dark;
+    background-color: $color-light;
+}
+
+// debug angular
+.ng-animate-start,
+.ng-animate-active {
+    border-collapse: collapse;
+    border-spacing: none;
+    -ms-zoom: auto;
 }

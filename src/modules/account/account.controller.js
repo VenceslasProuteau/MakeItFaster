@@ -11,8 +11,8 @@ export default class AccountController {
     	this.user = angular.copy(this.UserService.user);
     }
 
-    save(user) {
-    	this.UserService.save(user);
+    save() {
+    	this.UserService.save(this.user);
     }
 
     cancel() {

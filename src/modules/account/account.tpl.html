@@ -2,7 +2,7 @@
 	<button class="button button--cancel" ng-click="accountCtrl.cancel()" ng-disabled="accountCtrl.formAccount.$pristine">
 		Annuler
 	</button>
-	<button class="button button--action" ng-click="accountCtrl.save(accountCtrl.user)" ng-disabled="accountCtrl.formAccount.$invalid || accountCtrl.formAccount.$pristine">
+	<button class="button button--action" ng-click="accountCtrl.save()" ng-disabled="accountCtrl.formAccount.$invalid || accountCtrl.formAccount.$pristine">
 		Sauvegarder
 	</button>
 </nav>
@@ -21,6 +21,10 @@
 
 			<div class="login__block">
 				<input type="date" name="birthDate" id="birthDate" class="input login__input" ng-model="accountCtrl.user.birthDate" placeholder="Indiquez votre date de naissance"/>
+			</div>
+
+			<div class="login__block">
+				<input type="text" name="pseudo" id="pseudo" class="input login__input" ng-model="accountCtrl.user.oldPwd" placeholder="Ancien mot de passe"/>
 			</div>
 
 			<div class="login__block">

@@ -35,14 +35,11 @@ export default class LoginAPI {
 		  password: user.signup.password
 		})
 		.then((response) => {
-			console.log(response);
 			const storedUser = Object.assign({}, user.signup, response);
 			this.UserService.save(storedUser);
 			deferred.resolve();
 		})
-		.catch((error) => {
-			deferred.reject(error);
-		});
+		.catch((error) => deferred.reject(error));
 
 		return deferred.promise;
 

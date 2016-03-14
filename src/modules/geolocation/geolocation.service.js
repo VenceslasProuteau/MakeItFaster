@@ -55,7 +55,7 @@ export default class GeolocationService {
         }
 
         getMarkers() {
-            let markers = [
+            const markers = [
                 {
                     coords: {
                         latitude: 40.891304999999996,
@@ -80,8 +80,6 @@ export default class GeolocationService {
 
             return markers;
 
-            // get all markers from DB
-            // and add markers to 
         }
 
 }

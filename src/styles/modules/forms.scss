@@ -54,3 +54,7 @@ input:-webkit-autofill {
     -webkit-text-fill-color: $color-light !important;
 }
 
+label.ng-invalid, input.ng-invalid{
+    box-shadow: 0 0 5px 1px red;
+}
+

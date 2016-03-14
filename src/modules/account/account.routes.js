@@ -10,8 +10,8 @@ export default function routes($stateProvider) {
                 breadcrumbTitle: 'Mon compte'
             },
             views: {
-                'actions@app': {
-                    template: require('./actions.tpl.html'),
+                'content@app': {
+                    template: require('./account.tpl.html'),
                     controller: 'AccountController',
                     controllerAs: 'accountCtrl'
                 }

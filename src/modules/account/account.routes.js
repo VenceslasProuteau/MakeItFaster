@@ -1,5 +1,7 @@
 'use strict';
 
+import accountTemplate from './account.tpl.html';
+
 routes.$inject = ['$stateProvider'];
 
 export default function routes($stateProvider) {
@@ -11,7 +13,7 @@ export default function routes($stateProvider) {
             },
             views: {
                 'content@app': {
-                    template: require('./account.tpl.html'),
+                    template: accountTemplate,
                     controller: 'AccountController',
                     controllerAs: 'accountCtrl'
                 }

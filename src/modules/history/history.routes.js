@@ -1,12 +1,14 @@
 'use strict';
 
+import historyTemplate from './history.tpl.html';
+
 routes.$inject = ['$stateProvider'];
 
 export default function routes($stateProvider) {
     $stateProvider
         .state('app.history', {
             url: '/history',
-            template: require('./history.tpl.html'),
+            template: historyTemplate,
             controller: 'HistoryController',
             controllerAs: 'historyCtrl'
         });

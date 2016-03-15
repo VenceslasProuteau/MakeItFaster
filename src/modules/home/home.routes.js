@@ -1,5 +1,8 @@
 'use strict';
 
+import homeTemplate from './home.tpl.html';
+import homeActionsTemplate from './actions.tpl.html';
+
 routes.$inject = ['$stateProvider', 'uiGmapGoogleMapApiProvider'];
 
 export default function routes($stateProvider, uiGmapGoogleMapApiProvider) {
@@ -12,12 +15,12 @@ export default function routes($stateProvider, uiGmapGoogleMapApiProvider) {
             },
             views: {
               'content@app': {
-                template: require('./home.tpl.html'),
+                template: homeTemplate,
                 controller: 'HomeController',
                 controllerAs: 'homeCtrl'
               },
               'actions@app': {
-                  template: require('./actions.tpl.html'),
+                  template: homeActionsTemplate,
                   controller: 'HomeController',
                   controllerAs: 'homeCtrl'
               },

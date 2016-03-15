@@ -1,5 +1,7 @@
 'use strict';
 
+import mainIndexTemplate from './index.tpl.html';
+
 routes.$inject = ['$stateProvider'];
 
 export default function routes($stateProvider) {
@@ -8,7 +10,7 @@ export default function routes($stateProvider) {
             abstract: true,
             views: {
                 main: {
-                    template: require('./index.tpl.html'),
+                    template: mainIndexTemplate,
                     controller: 'MainController',
                     controllerAs: 'mainCtrl'
                 }

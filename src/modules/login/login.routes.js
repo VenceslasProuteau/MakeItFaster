@@ -1,5 +1,7 @@
 'use strict';
 
+import loginTemplate from './login.tpl.html';
+
 routes.$inject = ['$stateProvider'];
 
 export default function routes($stateProvider) {
@@ -8,7 +10,7 @@ export default function routes($stateProvider) {
             url: '/login',
             views: {
                 main: {
-                    template: require('./login.tpl.html'),
+                    template: loginTemplate,
                     controller: 'LoginController',
                     controllerAs: 'loginCtrl'
                 }
@@ -19,7 +21,7 @@ export default function routes($stateProvider) {
         	url: '/signup',
             views: {
                 main: {
-                    template: require('./login.tpl.html'),
+                    template: loginTemplate,
                     controller: 'LoginController',
                     controllerAs: 'loginCtrl'
                 }

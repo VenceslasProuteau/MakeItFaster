@@ -2,13 +2,13 @@
 
 export default class AccountController {
 
-    constructor(UserService) {
+    constructor(UserService, resolvedUser) {
     	this.UserService = UserService;
     	this.initUser();
     }
 
     initUser() {
-    	this.user = angular.copy(this.UserService.user);
+    	this.user = Object.assign({}, this.UserService.user);
     }
 
     save() {

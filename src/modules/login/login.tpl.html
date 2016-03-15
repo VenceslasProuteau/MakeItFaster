@@ -18,7 +18,7 @@
 		</div>
 
 		<div class="login__block">
-			<input type="email" name="email" id="email" ng-model="user.signup.mail" class="input label login__input" placeholder="Adresse email" ng-pattern="/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/" required/>
+			<input type="email" name="email" id="email" ng-model="user.signup.email" class="input label login__input" placeholder="Adresse email" ng-pattern="/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/" required/>
 		</div>
 
 		<div class="login__block">
@@ -39,7 +39,7 @@
 	<div class="login__block-wrapper" ng-if="$state.current.name === 'login' ">
 		<div class="login__sentence"><b>Bienvenue.</b> Accédez à votre application <span class="login__brand">Make It Faster</span></div>
 		<div class="login__block">
-			<input type="email" id="user" ng-model="user.mail" class="input label login__input" placeholder="Adresse email" required/>
+			<input type="email" id="user" ng-model="user.email" class="input label login__input" placeholder="Adresse email" required/>
 		</div>
 
 		<div class="login__block">

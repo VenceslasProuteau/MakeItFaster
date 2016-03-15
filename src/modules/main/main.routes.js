@@ -16,11 +16,11 @@ export default function routes($stateProvider) {
                 }
             },
             resolve: {
-                resolvedUser: function(UserService) {
-                    return UserService.auth.$requireAuth()
+                resolvedUser: function(LoginAPI, UserService) {
+                    return LoginAPI.firebaseAuthObject.$requireAuth()
                         .then((user) => UserService.getUser(user.uid));
 
-                    resolvedUser.$inject = ['UserService'];
+                    resolvedUser.$inject = ['LoginAPI', 'UserService'];
                 }
             }
         });

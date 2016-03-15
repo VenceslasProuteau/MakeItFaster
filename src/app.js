@@ -11,6 +11,7 @@ import toaster from 'angularjs-toaster';
 
 import routing from './app.config';
 
+import core from './modules/core/module';
 import main from './modules/main/module';
 import login from './modules/login/module';
 import home from './modules/home/module';
@@ -28,14 +29,14 @@ var Firebase = require('firebase');
 // import components
 import components from './components/module';
 
-angular.module('app', [angularfire, toaster, uirouter, login, home, history, geolocation, user, account, components, main])
+angular.module('app', [angularfire, toaster, uirouter, login, home, history, geolocation, user, account, core, components, main])
     .config(routing)
     .run(runApp)
 
 
-runApp.$inject = ['$rootScope', '$location', '$state', 'SpinnerAPI', 'UserService'];
+runApp.$inject = ['$rootScope', '$location', '$state', 'SpinnerAPI'];
 
-function runApp($rootScope, $location, $state, SpinnerAPI, UserService) {
+function runApp($rootScope, $location, $state, SpinnerAPI) {
     $rootScope.$state = $state;
     $rootScope.SpinnerAPI = SpinnerAPI;
     

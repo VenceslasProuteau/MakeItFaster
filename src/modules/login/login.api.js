@@ -2,18 +2,19 @@
 
 export default class LoginAPI {
 
-	constructor(UserService, $q) {
+	constructor(UserService, $q, $firebaseAuth, firebaseDataService) {
 		this.UserService = UserService;
 		this.$q = $q;
+
+		this.firebaseAuthObject = $firebaseAuth(firebaseDataService.root);
 	}
+
+
 
 	login(user) {
 		const deferred = this.$q.defer();
 
-		this.UserService.auth.$authWithPassword({
-			email: user.mail,
-			password: user.password
-		}, {rememberMe: true})
+		this.firebaseAuthObject.$authWithPassword(user, {rememberMe: true})
 		.then((user) => {
 			const storedUser = this.UserService.getUser(user.uid);
 			deferred.resolve(storedUser);
@@ -24,17 +25,14 @@ export default class LoginAPI {
 	}
 
 	logout() {
-		this.UserService.auth.$unauth();
+		this.firebaseAuthObject.$unauth();
 	}
 
 	signup(user) {
 		const deferred = this.$q.defer();
 
 		// we create the user, that is stored in firebase securedDB
-		this.UserService.auth.$createUser({
-			email: user.signup.mail,
-			password: user.signup.password
-		})
+		this.firebaseAuthObject.$createUser(user.signup)
 		.then((userId) => {
 			const storedUser = Object.assign({}, user.signup, userId);
 			// we create the user in our own DB now, with basic informations, with userId key.
@@ -50,4 +48,4 @@ export default class LoginAPI {
 
 }
 
-LoginAPI.$inject = ['UserService', '$q'];
+LoginAPI.$inject = ['UserService', '$q', '$firebaseAuth', 'firebaseDataService'];

@@ -8,6 +8,7 @@ var autoprefixer = require('autoprefixer');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var jsonVars = 'src/colors.json';
 
 module.exports = function makeWebpackConfig (options) {
   /**
@@ -98,8 +99,7 @@ module.exports = function makeWebpackConfig (options) {
       loader: 'babel',
       exclude: /node_modules/
     }, {
-      test: /\.scss$/,
-      loaders: ['style', 'css', 'sass']
+      test: /.scss$/, loader: "style!css!sass!jsontosass?path="+ jsonVars
     }, {
       // ASSET LOADER
       // Reference: https://github.com/webpack/file-loader
@@ -115,8 +115,8 @@ module.exports = function makeWebpackConfig (options) {
       // Allow loading html through js
       test: /\.html$/,
       loader: 'raw'
-    }]
-  };
+    }
+  ]};
 
   // ISPARTA LOADER
   // Reference: https://github.com/ColCh/isparta-instrumenter-loader

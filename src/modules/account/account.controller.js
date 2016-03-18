@@ -17,6 +17,7 @@ export default class AccountController {
 
     cancel() {
     	this.initUser();
+        this.formAccount.$setPristine();
     }
 
 }

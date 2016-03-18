@@ -49,7 +49,6 @@ export default class HomeController {
 
 		GeolocationService.getPosition()
 			.then((response) => {
-				console.log(response);
 		    	self.centerMap = GeolocationService.formatMarker({
 		    		isUserPosition: true,
 		    		coords: {
@@ -61,7 +60,7 @@ export default class HomeController {
 		    		}
 		    	});
 
-		    	self.userMarker = angular.copy(self.centerMap);
+		    	self.userMarker = Object.assign({}, self.centerMap);
 		    	self.markers = GeolocationService.getMarkers();
 		    	self.markers.push(self.userMarker);
 

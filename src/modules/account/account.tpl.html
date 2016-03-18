@@ -6,39 +6,51 @@
 		Sauvegarder
 	</button>
 </nav>
-<div class="account__form">
-	<div class="account__block">
-		<div class="account__title">Gérer les informations de mon compte</div>
-		<form name="accountCtrl.formAccount">
+<form name="accountCtrl.formAccount">
+	<div class="account__form">
+		<div class="account__block">
+			<div class="account__title">Mes informations personnelles</div>
+		
+				<div class="login__block">
+					<input type="text" name="lastName" id="lastName" class="input login__input" ng-model="accountCtrl.user.lastName" placeholder="Nom" required/>
+				</div>
+
+				<div class="login__block">
+					<input type="text" name="firstName" id="firstName" class="input login__input" ng-model="accountCtrl.user.firstName" placeholder="Prénom" required/>
+				</div>
+
+			</form>
+		</div>
+
+		<div class="account__block">
+
+			<div class="account__title">Mes informations de compte</div>
+			<div class="login__block">
+				<input type="text" name="email" id="email" class="input login__input" ng-model="accountCtrl.user.mail" placeholder="Adresse e-mail"/>
+			</div>
 
 			<div class="login__block">
-				<input type="text" name="lastName" id="lastName" class="input login__input" ng-model="accountCtrl.user.lastName" placeholder="Nom" required/>
+				<input type="password" name="oldPwd" id="oldPwd" class="input login__input" ng-model="accountCtrl.user.oldPwd" placeholder="Ancien mot de passe"/>
 			</div>
 
 			<div class="login__block">
-				<input type="text" name="firstName" id="firstName" class="input login__input" ng-model="accountCtrl.user.firstName" placeholder="Prénom" required/>
+				<input type="password" name="newPwd" id="newPwd" class="input login__input" ng-model="accountCtrl.user.newPwd" placeholder="Nouveau mot de passe"/>
 			</div>
 
-			<div class="login__block">
-				<input type="date" name="birthDate" id="birthDate" class="input login__input" ng-model="accountCtrl.user.birthDate" placeholder="Indiquez votre date de naissance"/>
+			<div 
+				class="login__block" 
+				ng-class="{'login__block--invalid': accountCtrl.user.newPwd !== accountCtrl.user.confirmNewPwd}">
+				<input 
+					type="password" 
+					name="confirmNewPwd" 
+					id="confirmNewPwd" 
+					class="input login__input" 
+					ng-model="accountCtrl.user.confirmNewPwd" 
+					placeholder="Confirmation nouveau mot de passe" 
+					compare-to="accountCtrl.user.newPwd"
+					/>
 			</div>
 
-			<div class="login__block">
-				<input type="text" name="pseudo" id="pseudo" class="input login__input" ng-model="accountCtrl.user.oldPwd" placeholder="Ancien mot de passe"/>
-			</div>
-
-			<div class="login__block">
-				<input type="text" name="pseudo" id="pseudo" class="input login__input" ng-model="accountCtrl.user.newPwd" placeholder="Nouveau mot de passe"/>
-			</div>
-
-			<div class="login__block" ng-class="{'login__block--invalid': accountCtrl.user.newPwd !== accountCtrl.user.confirmNewPwd}">
-				<input type="text" name="pseudo" id="pseudo" class="input login__input" ng-model="accountCtrl.user.confirmNewPwd" placeholder="Confirmation nouveau mot de passe" compare-to="accountCtrl.user.newPwd"/>
-			</div>
-
-		</form>
-	</div>
-
-	<div class="account__block">
-		<div class="account__title">Gérer mes préférences</div>
-	</div>
-<div>
+		</div>
+	<div>
+</form>

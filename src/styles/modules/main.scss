@@ -29,6 +29,15 @@
 
 	    will-change: transform, visibility;
 
+	    &__image-wrapper {
+	    	width: 10rem;
+	    	height: 10rem;
+	    	border-radius: 50%;
+	    	background-size: cover;
+	    	background-position: center center;
+	    	box-shadow: 0 0 6px 2px $color-red-dark;
+	    }
+
 		&__block {
 			display: flex;
 			align-items: center;
@@ -42,11 +51,17 @@
 
 
 			&--user {
-				height: 12rem;
-				margin: .5rem 0;
+				flex-direction: column;
+				justify-content: space-between;
 
-				background: $color-blue;
-				border-bottom: solid 1px $color-blue-dark;
+				height: 15rem;
+				margin: .5rem;
+
+				background: $color-red;
+				color: $color-light;
+				border-bottom: solid 3px $color-blue-dark;
+
+				cursor: default;
 			}
 
 			&--logout {

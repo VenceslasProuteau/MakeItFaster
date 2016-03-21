@@ -45,7 +45,7 @@ export default class HomeController {
 
     	this.userMarker = {};
     	this.markers = [];
-    	var self = this;
+    	const self = this;
 
 		GeolocationService.getPosition()
 			.then((response) => {
@@ -73,6 +73,10 @@ export default class HomeController {
 
     clickMarker(marker) {
        alert(marker.email); //Affichera l'email du point sur lequel on a cliqué
+    }
+
+    centerStore(storeCoords) {
+        this.centerMap.coords = storeCoords;
     }
 /*
     maPosition(position) {

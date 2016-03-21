@@ -13,7 +13,8 @@
 		<div class="home__aside">
 			<div 
 				class="home__store"
-				ng-repeat="store in homeCtrl.stores">
+				ng-repeat="store in homeCtrl.stores"
+				ng-click="homeCtrl.centerStore(store.coords)">
 
 				<div class="home__store-header">
 					{{::store.name}}

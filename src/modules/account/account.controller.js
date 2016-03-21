@@ -2,11 +2,11 @@
 
 export default class AccountController {
 
-    constructor(UserService, SpinnerAPI, toaster) {
+    constructor(UserService, SpinnerAPI, toaster, Upload) {
     	this.UserService = UserService;
         this.SpinnerAPI = SpinnerAPI;
         this.toaster = toaster;
-
+        this.Upload = Upload;
     	this.initUser();
     }
 
@@ -30,6 +30,20 @@ export default class AccountController {
     	this.initUser();
     }
 
+    uploadFiles(file, errFiles) {
+        this.f = file;
+        this.errFile = errFiles && errFiles[0];
+        const self = this;
+        if (file) {
+            console.log(file);
+            this.Upload.base64DataUrl(file)
+                .then((url) => {
+                    self.user.imageProfile = url;
+                    self.UserService.save(self.user);
+                });
+        }   
+    }
+
 }
 
-AccountController.$inject = ['UserService', 'SpinnerAPI', 'toaster'];
+AccountController.$inject = ['UserService', 'SpinnerAPI', 'toaster', 'Upload'];

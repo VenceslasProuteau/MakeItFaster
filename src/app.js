@@ -23,6 +23,7 @@ import account from './modules/account/module';
 import 'lodash';
 import 'angular-simple-logger';
 import 'angular-google-maps';
+import 'ng-file-upload';
 
 var Firebase = require('firebase');
 

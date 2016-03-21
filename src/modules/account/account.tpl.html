@@ -19,10 +19,10 @@
 				<input type="text" name="firstName" id="firstName" class="input login__input" ng-model="accountCtrl.user.firstName" placeholder="Prénom" required/>
 			</div>
 
-			<div class="login__block">
+			<!-- <div class="login__block">
 				<input type="date" name="birthDate" id="birthDate" class="input login__input" ng-model="accountCtrl.user.birthDate" placeholder="Indiquez votre date de naissance"/>
-			</div>
-
+			</div> -->
+<!-- 
 			<div class="login__block">
 				<input type="text" name="pseudo" id="pseudo" class="input login__input" ng-model="accountCtrl.user.oldPwd" placeholder="Ancien mot de passe"/>
 			</div>
@@ -33,8 +33,29 @@
 
 			<div class="login__block" ng-class="{'login__block--invalid': accountCtrl.user.newPwd !== accountCtrl.user.confirmNewPwd}">
 				<input type="text" name="pseudo" id="pseudo" class="input login__input" ng-model="accountCtrl.user.confirmNewPwd" placeholder="Confirmation nouveau mot de passe" compare-to="accountCtrl.user.newPwd"/>
-			</div>
-
+			</div> -->
+			<div class="account__form__profile-image">
+				<button
+					class="button button--action"
+					type="file"
+					ngf-select="accountCtrl.uploadFiles($file, $invalidFiles)"
+					accept="image/*" 
+					ngf-max-height="1000" 
+					ngf-max-size="1MB">
+	      			<span ng-if="!accountCtrl.user.imageProfile">
+	      				Ajouter une image de profile
+	      			</span>
+	      			<span ng-if="accountCtrl.user.imageProfile">
+	      				Modifier mon image de profile
+	      			</span>
+	      		</button>
+	      		<div class="account__image-wrapper">
+		      		<img
+		      			ng-if="accountCtrl.user.imageProfile"
+		      			ng-src="{{accountCtrl.user.imageProfile}}"
+		  			/>
+		  		</div>
+		  	</div>
 		</form>
 	</div>
 

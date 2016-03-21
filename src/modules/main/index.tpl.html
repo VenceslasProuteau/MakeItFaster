@@ -3,6 +3,10 @@
 	ng-class="{'app-aside--visible' : $root.isAsideOffcanvasVisible}"
 	>
 	<div class="app-aside__block app-aside__block--user">
+		<div
+			class="app-aside__image-wrapper" 
+			ng-style="{'background-image': ' url(' + mainCtrl.user.imageProfile + ')' }">
+		</div>
 		{{mainCtrl.user.firstName}} {{mainCtrl.user.lastName}}
 	</div>
 	<a

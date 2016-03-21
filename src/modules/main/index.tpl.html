@@ -4,6 +4,7 @@
 	>
 	<div class="app-aside__block app-aside__block--user">
 		<div
+			ng-if="mainCtrl.user.imageProfile"
 			class="app-aside__image-wrapper" 
 			ng-style="{'background-image': ' url(' + mainCtrl.user.imageProfile + ')' }">
 		</div>
@@ -25,14 +26,20 @@
 	</a>
 	<a 
 		class="app-aside__block">
+		<i class="icon-star"></i>
+		Mes favoris ({{ mainCtrl.starredStores.length || 0 }})
+	</a>
+	<a 
+		class="app-aside__block">
 		<i class="icon-cart"></i>
-		Autre catégorie
+		Mon panier
 	</a>
 	<div 
 		ng-click="mainCtrl.logout()"
 		class="app-aside__block app-aside__block--logout">
-		<i class="icon-switch"></i>
-		Déconnexion
+		<div class="app-aside__icon-wrapper">
+			<i class="icon-switch"></i>
+		</div>
 	</div>
 
 </div>
@@ -41,12 +48,12 @@
 	<div class="app-main__container">
 		<nav class="app-main-nav">
 			<div class="app-main-nav__container">
-				<div 
+				<button 
 					class="app-main__menu"
 					ng-click="$root.showTheOffCanvas()">
 					<i class="icon-menu2"></i>
 					Menu
-				</div>
+				</button>
 				<span class="app-main__breadcrumb-title">{{$state.current.data.breadcrumbTitle}}</span>
 			</div>
 			<div ui-view="actions" class="app-main__actions" ng-show="$state.current.data.hasActions">

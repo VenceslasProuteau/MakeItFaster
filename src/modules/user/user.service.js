@@ -2,10 +2,11 @@
 
 export default class UserService {
 
-	constructor($firebaseObject, $q, firebaseDataService) {
+	constructor($firebaseObject, $q, $firebaseAuth, firebaseDataService) {
 		this.$firebaseObject = $firebaseObject;
 		this.$q = $q;
 		this.ref = firebaseDataService.users;
+		this.firebaseAuthObject = $firebaseAuth(firebaseDataService.root);
 	}
 
 	create(user) {
@@ -33,6 +34,22 @@ export default class UserService {
 			.then((user) => this.user = user);
 	}
 
+	changePassword(user) {
+		const deferred = this.$q.defer();
+
+		this.firebaseAuthObject
+			.$changePassword({
+				email: user.mail,
+				oldPassword: user.oldPwd,
+				newPassword: user.newPwd
+			}).then(function() {
+				deferred.resolve();
+			}).catch(function(error) {
+				deferred.reject(error);
+			});
+		return deferred.promise;
+	}
+
 }
 
-UserService.$inject = ['$firebaseObject', '$q', 'firebaseDataService'];
+UserService.$inject = ['$firebaseObject', '$q', '$firebaseAuth', 'firebaseDataService'];

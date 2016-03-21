@@ -24,45 +24,135 @@
 	&__content-wrapper {
 		display: flex;
 		height: 100%;
+		border: solid 2px $color-light;
+
+		@media (max-width: 1368px) {
+			display: flex;
+			height: 100%;
+			border: solid 2px $color-light;
+			flex-direction: column;
+		}
 	}
 
 	&__aside {
 		position: relative;
 		flex: 0 1 25%;
-		display: flex;
 		flex-direction: column;
 		align-content: stretch;
+		border-right: solid 2px $color-light;
+		height: 100%;
+	    overflow: auto;
+
+		@media (max-width: 1368px) {
+			flex: 0 1 35%;
+			display: flex;
+			flex-direction: row;
+			border-right: none;
+		}
+
 
 		&--gmaps {
 			flex: 0 1 75%;
+			border: none;
+			overflow: hidden;
+
+			@media (max-width: 1368px) {
+				flex: 0 1 65%;
+				flex-direction: row;
+				border-right: none;
+			}
 		}
+
+
 	}
 
 	&__store {
-		flex: 1 1 33%;
+		position: relative;
+		height: calc(100% / 3);
 		background: $color-light;
 		color: darken($color-blue-dark, 10);
 		cursor: pointer;
-		transition: background ease-in .2s;
+		background-size: 100% 100%;
+		background-position: center center;
+		transition: background-size .3s ease;
 
-		&-header {
-			padding: 1rem .5rem;
-			background: $color-red;
-			color: $color-light;
-			border-bottom: solid 1px $color-red-dark;
-		}
+		@media (max-width: 1368px) {
+			height: auto;
+			flex: 0 0 50%;
 
-		&-resume {
-			padding: .5rem;
+			&:not(:last-child) {
+				border-right: solid 1px $color-light;
+			}
 		}
 
 		&:hover {
-			background: darken($color-light, 10);
+			background-size: 105% 105%;
+		}
+
+		&-resume {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			padding: 1rem;
+			background: $color-blue-dark;
+			color: $color-light;
+			display: flex;
+			justify-content: space-between;
+		    border-top: solid 2px $color-light;
+		}
+
+		&-access {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			&__btn {
+				position: absolute;
+				bottom: 1.5rem;
+				right: 0;
+				background: white;
+				color: $color-blue-dark;
+				padding: .8rem;
+				border-radius: 50%;
+				box-shadow: 0 2px 1px $color-blue-dark;
+				font-size: 2rem;
+				height: 4rem;
+				width: 4rem;
+				text-align: center;
+
+				&:hover {
+					color: $color-blue-dark;
+				}
+			}
+		}
+
+		&-favorite {
+			position: absolute;
+			top: .5rem;
+			left: .5rem;
+			color: $color-light;
+			font-size: 1.5rem;
+			opacity: .5;
+
+			&--checked {
+				color: gold;
+				opacity: 1;
+			}
 		}
 
 		&:not(:last-child) {
-			border-bottom: solid 1px $color-blue-dark;
+			border-bottom: solid 1px $color-light;
 		}
+	}
+
+	&__gmaps-picture {
+		background-size: 100% 100%;
+		background-position: center center;
+		height: 10rem;
+		width: 10rem;
+
 	}
 }
 

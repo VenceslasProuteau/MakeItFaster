@@ -1,13 +1,11 @@
 <div class="home__actions">
-	<div class="home__actions-search">
-	<input type="text" class="input home__actions-input" placeholder="Rechercher un Carrefour précis" />
-	</div>
-	<div class="home__actions-buttons">
-		<button class="button button--action">
-			Filtrer
-		</button>
-		<button class="button button--action">
-			Trier
-		</button>
+ 	<div class="home__search">
+		<label for="citySearch">Rechercher un 'Carrefour' précis: </label>
+		<select 
+			ng-model="selectedStore"
+			ng-init="homeCtrl.stores[0]"
+			ng-options="store.address.borrow group by store.address.city for store in homeCtrl.stores"
+			ng-click="homeCtrl.centerStore(selectedStore.$id)">
+    	</select>
 	</div>
 </div>

@@ -1,65 +1,121 @@
-<nav class="account__actions">
-	<button class="button button--cancel" ng-click="accountCtrl.cancel()" ng-disabled="accountCtrl.formAccount.$pristine">
-		Annuler
-	</button>
-	<button class="button button--action" ng-click="accountCtrl.save()" ng-disabled="accountCtrl.formAccount.$invalid || accountCtrl.formAccount.$pristine">
-		Sauvegarder
-	</button>
-</nav>
-<div class="account__form">
-	<div class="account__block">
-		<div class="account__title">Gérer les informations de mon compte</div>
-		<form name="accountCtrl.formAccount">
+<div class="account">
+	<div class="account__block-wrapper">
+		<div class="account__block">
+			<div class="account__title">Mes informations personnelles</div>
+			<form name="accountCtrl.formAccount" class="account__form">
+				<div class="account__blocks-split">
+					<div class="form__block form__block--account">
+						<input type="text" name="lastName" id="lastName" class="input form__input form__input--account" ng-model="accountCtrl.user.lastName" placeholder="Nom" required/>
+					</div>
 
-			<div class="login__block">
-				<input type="text" name="lastName" id="lastName" class="input login__input" ng-model="accountCtrl.user.lastName" placeholder="Nom" required/>
-			</div>
+					<div class="form__block form__block--account">
+						<input type="text" name="firstName" id="firstName" class="input form__input form__input--account" ng-model="accountCtrl.user.firstName" placeholder="Prénom" required/>
+					</div>
 
-			<div class="login__block">
-				<input type="text" name="firstName" id="firstName" class="input login__input" ng-model="accountCtrl.user.firstName" placeholder="Prénom" required/>
-			</div>
+					<div class="form__block form__block--account">
+						<input type="number" name="telephone" id="telephone" class="input form__input form__input--account" ng-model="accountCtrl.user.telephone" placeholder="Numero de téléphone"/>
+					</div>
 
-			<!-- <div class="login__block">
-				<input type="date" name="birthDate" id="birthDate" class="input login__input" ng-model="accountCtrl.user.birthDate" placeholder="Indiquez votre date de naissance"/>
-			</div> -->
-<!-- 
-			<div class="login__block">
-				<input type="text" name="pseudo" id="pseudo" class="input login__input" ng-model="accountCtrl.user.oldPwd" placeholder="Ancien mot de passe"/>
-			</div>
+					<div class="form__block form__block--account">
+						<input type="text" name="adress" id="adress" class="input form__input form__input--account" ng-model="accountCtrl.user.adress" placeholder="Adresse"/>
+					</div>
 
-			<div class="login__block">
-				<input type="text" name="pseudo" id="pseudo" class="input login__input" ng-model="accountCtrl.user.newPwd" placeholder="Nouveau mot de passe"/>
-			</div>
+					<div class="form__block form__block--account">
+						<input type="text" name="city" id="city" class="input form__input form__input--account" ng-model="accountCtrl.user.city" placeholder="Code Postal / Ville"/>
+					</div>
 
-			<div class="login__block" ng-class="{'login__block--invalid': accountCtrl.user.newPwd !== accountCtrl.user.confirmNewPwd}">
-				<input type="text" name="pseudo" id="pseudo" class="input login__input" ng-model="accountCtrl.user.confirmNewPwd" placeholder="Confirmation nouveau mot de passe" compare-to="accountCtrl.user.newPwd"/>
-			</div> -->
-			<div class="account__form__profile-image">
-				<button
-					class="button button--action"
-					type="file"
-					ngf-select="accountCtrl.uploadFiles($file, $invalidFiles)"
-					accept="image/*" 
-					ngf-max-height="1000" 
-					ngf-max-size="1MB">
-	      			<span ng-if="!accountCtrl.user.imageProfile">
-	      				Ajouter une image de profile
-	      			</span>
-	      			<span ng-if="accountCtrl.user.imageProfile">
-	      				Modifier mon image de profile
-	      			</span>
-	      		</button>
-	      		<div class="account__image-wrapper">
-		      		<img
-		      			ng-if="accountCtrl.user.imageProfile"
-		      			ng-src="{{accountCtrl.user.imageProfile}}"
-		  			/>
-		  		</div>
-		  	</div>
-		</form>
+				</div>
+				<div class="account__blocks-split">
+					<div class="account__form__profile-image">
+		      			<div
+							class="account__form__image-wrapper" 
+		      				ng-if="accountCtrl.user.imageProfile"
+							ng-style="{'background-image': ' url(' + mainCtrl.user.imageProfile + ')' }">
+							<div 
+								class="account__image-edit"
+								type="file"
+								ngf-select="accountCtrl.uploadFiles($file, $invalidFiles)"
+								accept="image/*" 
+								ngf-max-height="1000" 
+								ngf-max-size="1MB">
+							</div>
+						</div>
+		      			<div
+							class="account__form__image-wrapper icon-file-picture" 
+		      				ng-if="!accountCtrl.user.imageProfile"
+							>
+							<div 
+								class="account__image-edit"
+								type="file"
+								ngf-select="accountCtrl.uploadFiles($file, $invalidFiles)"
+								accept="image/*" 
+								ngf-max-height="1000" 
+								ngf-max-size="1MB">
+							</div>
+						</div>
+			  		</div>
+				</div>
+			</form>
+			<nav class="account__actions">
+				<button class="button button--cancel" ng-click="accountCtrl.cancel()" ng-disabled="accountCtrl.formAccount.$pristine">
+					Annuler
+				</button>
+				<button class="button button--action" ng-click="accountCtrl.save()" ng-disabled="accountCtrl.formAccount.$invalid || accountCtrl.formAccount.$pristine">
+					Sauvegarder
+				</button>
+			</nav>
+		</div>
+		<div class="account__block">
+			<div class="account__title">Changer les informations de mon compte</div>
+			<form name="accountCtrl.formAccountInformations" class="account__form account__form--col">
+				<div class="form__block form__block--account">
+					<input type="password" name="pseudo" id="pseudo" class="input form__input form__input--account" ng-model="accountCtrl.user.oldPwd" placeholder="Ancien mot de passe" />
+				</div>
+
+				<div class="form__block form__block--account">
+					<input type="password" name="pseudo" id="pseudo" class="input form__input form__input--account" ng-model="accountCtrl.user.newPwd" placeholder="Nouveau mot de passe"/>
+				</div>
+
+				<div class="form__block form__block--account" ng-class="{'login__block--invalid': accountCtrl.user.newPwd !== accountCtrl.user.confirmNewPwd}">
+					<input type="password" name="pseudo" id="pseudo" class="input form__input form__input--account" ng-model="accountCtrl.user.confirmNewPwd" placeholder="Confirmation nouveau mot de passe" compare-to="accountCtrl.user.newPwd"/>
+				</div>
+			</form>
+			<nav class="account__actions">
+				<button class="button button--cancel" ng-click="accountCtrl.cancel()" ng-disabled="accountCtrl.formAccountInformations.$pristine">
+					Annuler
+				</button>
+				<button class="button button--action" ng-click="accountCtrl.changePassword(accountCtrl.user)" ng-disabled="accountCtrl.formAccountInformations.$invalid || accountCtrl.formAccountInformations.$pristine">
+					Sauvegarder
+				</button>
+			</nav>
+		</div>
 	</div>
 
-	<div class="account__block">
-		<div class="account__title">Gérer mes préférences</div>
+	<div class="account__block-wrapper">
+		<div class="account__block">
+			<div class="account__title">mes préférences</div>
+			<form name="accountCtrl.formAccountPreferences" class="account__form account__form--col">
+				<div class="account__preferences">
+					<div class="account__preferences__field input-chekbox">
+						<input class="app-checkbox__input" type="checkbox" id="1"/>
+						<label class="app-checkbox__label" for="1">Etre alerté en cas de promotions sur mes magasins favoris</label>
+					</div>
+
+					<div class="account__preferences__field input-chekbox">
+						<input class="app-checkbox__input" type="checkbox" id="2"/>
+						<label class="app-checkbox__label" for="2">Recevoir la newsletter</label>
+					</div>
+				</div>
+			</form>
+			<nav class="account__actions">
+				<button class="button button--cancel" ng-click="accountCtrl.cancel()" ng-disabled="accountCtrl.formAccountPreferences.$pristine">
+					Annuler
+				</button>
+				<button class="button button--action" ng-click="accountCtrl.save()" ng-disabled="accountCtrl.formAccountPreferences.$invalid || accountCtrl.formAccountPreferences.$pristine">
+					Sauvegarder
+				</button>
+			</nav>
+		</div>
 	</div>
+
 <div>

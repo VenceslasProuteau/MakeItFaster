@@ -9,24 +9,24 @@
 	<div class="login__block-wrapper" ng-if="$state.current.name === 'signup' ">
 		<div class="login__sentence"><b>Bienvenue.</b> Créez rapidement votre compte <span class="login__brand">Make It Faster.</span></div>
 
-		<div class="login__block">
-			<input type="text" name="firstName" id="firstName" ng-model="user.signup.firstName" class="input input login__input" placeholder="Prénom" required/>
+		<div class="form__block">
+			<input type="text" name="firstName" id="firstName" ng-model="user.signup.firstName" class="input input form__input" placeholder="Prénom" required/>
 		</div>
 
-		<div class="login__block">
-			<input type="text" name="lastName" id="lastName" ng-model="user.signup.lastName" class="input input login__input" placeholder="Nom" required/>
+		<div class="form__block">
+			<input type="text" name="lastName" id="lastName" ng-model="user.signup.lastName" class="input input form__input" placeholder="Nom" required/>
 		</div>
 
-		<div class="login__block">
-			<input type="email" name="email" id="email" ng-model="user.signup.email" class="input label login__input" placeholder="Adresse email" ng-pattern="/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/" required/>
+		<div class="form__block">
+			<input type="email" name="email" id="email" ng-model="user.signup.email" class="input label form__input" placeholder="Adresse email" ng-pattern="/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/" required/>
 		</div>
 
-		<div class="login__block">
-			<input type="password" name="password" id="password" ng-model="user.signup.password" class="input input login__input" placeholder="Mot de passe" required/>
+		<div class="form__block">
+			<input type="password" name="password" id="password" ng-model="user.signup.password" class="input input form__input" placeholder="Mot de passe" required/>
 		</div>
 
-		<div class="login__block">
-			<input type="password" name="confirmPassword" id="confirmPassword" ng-model="user.signup.passwordConfirm" class="input input login__input" placeholder="Confirmation mot de passe" required compare-to="user.signup.password"/>
+		<div class="form__block">
+			<input type="password" name="confirmPassword" id="confirmPassword" ng-model="user.signup.passwordConfirm" class="input input form__input" placeholder="Confirmation mot de passe" required compare-to="user.signup.password"/>
 		</div>
 
 		<div class="login__validate">
@@ -38,12 +38,12 @@
 	<!-- LOGIN  -->
 	<div class="login__block-wrapper" ng-if="$state.current.name === 'login' ">
 		<div class="login__sentence"><b>Bienvenue.</b> Accédez à votre application <span class="login__brand">Make It Faster</span></div>
-		<div class="login__block">
-			<input type="email" id="user" ng-model="user.email" class="input label login__input" placeholder="Adresse email" required/>
+		<div class="form__block">
+			<input type="email" id="user" ng-model="user.email" class="input label form__input" placeholder="Adresse email" required/>
 		</div>
 
-		<div class="login__block">
-			<input type="password" id="password" ng-model="user.password" class="input input login__input" placeholder="Mot de passe" required/>
+		<div class="form__block">
+			<input type="password" id="password" ng-model="user.password" class="input input form__input" placeholder="Mot de passe" required/>
 		</div>
 
 		<div class="login__validate">

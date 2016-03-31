@@ -22,7 +22,7 @@ export default class AccountController {
                 this.toaster.pop('success', 'Modifications bien enregistrées');
                 this.formAccount.$setPristine();
             })
-            .catch((error) => this.toaster.pop('error', 'Problèeme lors de la sauvegarde de vos modifications'))
+            .catch((error) => this.toaster.pop('error', 'Problème lors de la sauvegarde de vos modifications'))
             .finally(() => this.SpinnerAPI.hide());
     }
 
@@ -31,8 +31,6 @@ export default class AccountController {
     }
 
     uploadFiles(file, errFiles) {
-        this.f = file;
-        this.errFile = errFiles && errFiles[0];
         const self = this;
         if (file) {
             console.log(file);
@@ -41,7 +39,18 @@ export default class AccountController {
                     self.user.imageProfile = url;
                     self.UserService.save(self.user);
                 });
-        }   
+        }
+    }
+
+    changePassword(user) {
+        this.SpinnerAPI.show();
+        this.UserService.changePassword(user)
+            .then(() => {
+                this.toaster.pop('success', 'Votre mot de passe a été changé avec succès');
+                this.formAccount.$setPristine();
+            })
+            .catch((error) => this.toaster.pop('error', 'Problème lors du changement de votre mot de passe'))
+            .finally(() => this.SpinnerAPI.hide());
     }
 
 }

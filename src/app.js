@@ -19,6 +19,11 @@ import history from './modules/history/module';
 import geolocation from './modules/geolocation/module';
 import user from './modules/user/module';
 import account from './modules/account/module';
+import starredstore from './modules/starredStore/module';
+import starredstores from './modules/starredStores/module';
+import store from './modules/store/module';
+import stores from './modules/stores/module';
+import markers from './modules/markers/module';
 
 import 'lodash';
 import 'angular-simple-logger';
@@ -30,7 +35,7 @@ var Firebase = require('firebase');
 // import components
 import components from './components/module';
 
-angular.module('app', [angularfire, toaster, uirouter, login, home, history, geolocation, user, account, core, components, main])
+angular.module('app', [angularfire, toaster, uirouter, login, home, history, geolocation, user, account, core, components, main, starredstore, starredstores, store, stores, markers])
     .config(routing)
     .run(runApp)
 
@@ -49,6 +54,7 @@ function runApp($rootScope, $location, $state, SpinnerAPI) {
     });
 
     $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+        console.log('here', error);
         if (error === "AUTH_REQUIRED") {
             $state.go("login");
         }

@@ -21,6 +21,11 @@ export default function routes($stateProvider) {
                         .then((user) => UserService.getUser(user.uid));
 
                     resolvedUser.$inject = ['LoginAPI', 'UserService'];
+                },
+                resolvedStarredStores: function(StarredStoresService) {
+                    return StarredStoresService.get();
+
+                    resolvedStarredStores.$inject = ['StarredStoresService'];
                 }
             }
         });

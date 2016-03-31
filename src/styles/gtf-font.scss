@@ -24,6 +24,15 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-file-picture:before {
+    content: "\e91d";
+}
+.icon-directions:before {
+    content: "\e91c";
+}
+.icon-star:before {
+    content: "\e91b";
+}
 .icon-caution:before {
     content: "\e91a";
 }

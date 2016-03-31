@@ -12,12 +12,11 @@
 	    right: 0;
 
 	    width: 300px;
-		background: $color-blue;
-		color: darken($color-blue-dark, 10);
+		background: $color-blue-dark;
+		color: $color-light;
 		border-right: solid 1px $color-blue-light;
 
 		font-size: .9rem;
-	    font-weight: bold;
 	    z-index: 1060;
 
 	    visibility: hidden;
@@ -35,45 +34,67 @@
 	    	border-radius: 50%;
 	    	background-size: cover;
 	    	background-position: center center;
-	    	box-shadow: 0 0 6px 2px $color-red-dark;
+	    	box-shadow: 0 0 6px 2px darken($color-blue-dark, 10);
+	    }
+
+	    &__icon-wrapper {
+    	    width: 100%;
+		    position: relative;
+		    text-align: center;
+
+		    > i {
+		    	background: $color-light;
+		    	padding: 1.2rem;
+		    	border-radius: 50%;
+		    	color: $color-blue-dark;
+		    	font-size: 1.5rem;
+	    	    border: solid 1px $color-light;;
+		    }
 	    }
 
 		&__block {
 			display: flex;
 			align-items: center;
-
 			padding: 1rem;
 		    margin: .2rem .5rem;
-			background: $color-blue-light;
-
+			background-image: linear-gradient(to right, $color-blue-dark 50%, lighten($color-blue-dark, 5) 50%);
+			background-position: 0;
+			background-size: 200%;
+			transition: background .2s;
 			cursor: pointer;
-			text-transform: uppercase;
-
+			text-transform: capitalize;
 
 			&--user {
 				flex-direction: column;
-				justify-content: space-between;
-
+				justify-content: center;
+				font-size: 1.1rem;
 				height: 15rem;
 				margin: .5rem;
 
-				background: $color-red;
+				background: $color-blue-dark;
 				color: $color-light;
-				border-bottom: solid 3px $color-blue-dark;
+				border-bottom: solid 1px darken($color-blue-dark, 10);
 
 				cursor: default;
 			}
 
 			&--logout {
 				position: absolute;
-				bottom: .5rem;
+				bottom: 3.5rem;
 				left: 0;
 				right: 0;
+				height: 1px;
+				padding: 0;
+				background: $color-light;
 			}
 
 			&--isActive {
-				background: $color-blue;
-				color: darken($color-blue-dark, 10);
+				color: darken($color-blue-dark, 20);
+				background-position: -100%;
+
+				&:hover {
+					color: darken($color-blue-dark, 20);
+				}
 			}
 
 			> i {
@@ -87,7 +108,7 @@
 	        visibility: visible;
 	    }
 
-		@media (min-width: 1024px) {
+		@media (min-width: 1025px) {
 	        transform: translateZ(0);
 	        visibility: visible;
 	        z-index: 0;
@@ -118,7 +139,7 @@
 				align-items: center;
 				height: 4.375rem;
 				color: $color-blue-dark;
-				box-shadow: 0 1px 5px $color-grey;
+				box-shadow: 0 0 1px $color-blue-dark;
 			}
 		}
 
@@ -158,6 +179,9 @@
 		    align-items: center;
 		    justify-content: center;
 		    height: 100%;
+		    color: $color-light;
+		    background-color: $color-blue-dark;
+		    border: none;
 		    border-bottom: solid 5px $color-blue-dark;
 		    border-right: solid 1px $color-blue-dark;
 		    text-transform: uppercase;
@@ -165,12 +189,16 @@
 			font-size: .8rem;
 		    cursor: pointer;
 
+		    &:focus {
+		    	box-shadow: inset 0 1px 5px 0 darken($color-blue-dark, 10);
+		    }
+
 		    > i {
 		    	font-size: 1.5rem;
 		    	margin-bottom: .3rem;
 		    }
 
-		    @media (min-width: 1024px) {
+		    @media (min-width: 1025px) {
 				display: none;
 			}
 		}
@@ -180,7 +208,7 @@
 			text-transform: uppercase;
 		}
 
-		@media (min-width: 1024px) {
+		@media (min-width: 1025px) {
 			transition-delay: .1s;
 			left: 300px;
 		}

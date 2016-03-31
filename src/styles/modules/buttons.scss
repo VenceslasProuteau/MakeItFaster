@@ -7,13 +7,11 @@
     text-transform: uppercase;
     text-align: center;
     color: #fff;
-    border-radius: 2px;
     box-shadow: 0 0 2px 0 rgba(0,0,0,.2);
     padding: .8rem;
     font-size: .8rem;
     transition: all ease-in .3s;
     border: none;
-    border-radius: .2rem;
 
     &[disabled] {
         cursor: default;
@@ -26,9 +24,9 @@
     }
 
     &--action {
-    	background-color: $color-blue;
+    	background-color: darken($color-blue-dark, 5);
     	&:hover {
-    		background-color: darken($color-blue, 5);
+    		background-color: darken($color-blue-dark, 10);
     	}
     }
 

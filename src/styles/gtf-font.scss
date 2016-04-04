@@ -24,20 +24,18 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-file-picture:before {
-    content: "\e91d";
+
+.icon-location:before {
+    content: "\e91e";
 }
-.icon-directions:before {
-    content: "\e91c";
-}
-.icon-star:before {
-    content: "\e91b";
+.icon-position:before {
+    content: "\e91f";
 }
 .icon-caution:before {
     content: "\e91a";
 }
-.icon-warning:before {
-    content: "\e919";
+.icon-directions:before {
+    content: "\e91c";
 }
 .icon-close:before {
     content: "\e917";
@@ -48,11 +46,20 @@
 .icon-cross:before {
     content: "\e916";
 }
+.icon-star:before {
+    content: "\e91b";
+}
+.icon-warning:before {
+    content: "\e919";
+}
 .icon-chevron-thin-down:before {
     content: "\e914";
 }
 .icon-chevron-down:before {
     content: "\e915";
+}
+.icon-file-picture:before {
+    content: "\e91d";
 }
 .icon-home:before {
     content: "\e90a";

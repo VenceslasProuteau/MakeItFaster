@@ -2,7 +2,7 @@
 
 export default class HomeController {
 
-    constructor($window, GeolocationService, toaster, uiGmapGoogleMapApi, resolvedUserMarker, resolvedStores, StoresService, resolvedMarkers, StarredStoreService) {
+    constructor($window, toaster, uiGmapGoogleMapApi, resolvedUserMarker, resolvedStores, StoresService, resolvedMarkers, StarredStoreService) {
     	this.userMarker = resolvedUserMarker;
         this.markers = resolvedMarkers;
         this.markers.push(resolvedUserMarker);
@@ -33,4 +33,4 @@ export default class HomeController {
 
 }
 
-HomeController.$inject = ['$window', 'GeolocationService', 'toaster', 'uiGmapGoogleMapApi', 'resolvedUserMarker', 'resolvedStores', 'StoresService', 'resolvedMarkers', 'StarredStoreService'];
+HomeController.$inject = ['$window', 'toaster', 'uiGmapGoogleMapApi', 'resolvedUserMarker', 'resolvedStores', 'StoresService', 'resolvedMarkers', 'StarredStoreService'];

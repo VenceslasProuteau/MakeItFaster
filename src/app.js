@@ -1,7 +1,7 @@
 'use strict';
 
 // import all common scss
-import './styles/common.scss';
+import styles from './styles/common.scss';
 
 // import modules 
 import angular from 'angular';
@@ -54,8 +54,9 @@ function runApp($rootScope, $location, $state, SpinnerAPI) {
     });
 
     $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-        console.log('here', error);
+        console.log('statechangerror', error);
         if (error === "AUTH_REQUIRED") {
+            console.log('AUTH_REQUIRED');
             $state.go("login");
         }
     });

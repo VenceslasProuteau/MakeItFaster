@@ -1,7 +1,6 @@
 'use strict';
 
 import homeTemplate from './home.tpl.html';
-import homeActionsTemplate from './actions.tpl.html';
 
 import {UserMarkerObject} from '../../components/UserMarkerObject';
 
@@ -12,26 +11,20 @@ export default function routes($stateProvider, uiGmapGoogleMapApiProvider) {
         .state('app.home', {
             url: '/home',
             data: {
-                breadcrumbTitle: 'Accueil'/*,
-                hasActions: true*/
+                breadcrumbTitle: 'Accueil'
             },
             views: {
                 'content@app': {
                     template: homeTemplate,
                     controller: 'HomeController',
                     controllerAs: 'homeCtrl'
-                },
-                'actions@app': {
-                    template: homeActionsTemplate,
-                    controller: 'HomeController',
-                    controllerAs: 'homeCtrl'
                 }
             },
             resolve: {
-                resolvedUserMarker: function (GeolocationService) {
+                resolvedUserMarker: function (GeolocationService, uiGmapGoogleMapApi) {
                     return GeolocationService.getPosition()
                         .then((userPosition) => {
-                            return new UserMarkerObject(userPosition);
+                            return new UserMarkerObject(userPosition, uiGmapGoogleMapApi);
                         })
                         .catch((error) => console.log(error));
 

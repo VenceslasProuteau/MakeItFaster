@@ -9,9 +9,9 @@
 				<div 
 					class="home__store-resume"
 					ng-click="homeCtrl.centerStore(store.$id)">
-					{{::store.address.city}} <br/> {{::store.address.street}}
+					{{::store.address.city}} <span class="home__store-resume-street">{{::store.address.street}}</span>
 					<div class="home__store-access">
-						<a href="" title="Accéder à la page produits" alt="Accéder à la page produits" class="home__store-access__btn">
+						<a ui-sref="app.store({storeId: store.$id})" title="Accéder à la page produits" alt="Accéder à la page produits" class="home__store-access__btn">
 							<i class="icon-directions"></i>
 						</a>
 					</div>

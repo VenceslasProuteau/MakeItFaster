@@ -2,12 +2,13 @@
 
 export default class StoreService {
 
-    constructor(StoresService) {
-        this.StoresService = StoresService;
+    constructor($q, $firebaseArray, firebaseDataService, StoresService) {
+    	this.$firebaseArray = $firebaseArray;
+    	this.ref = firebaseDataService.stores;
     }
 
     get(storeId) {
-        return this.StoresService.stores.$getRecord(storeId);
+        return this.$firebaseArray(this.ref).$getRecord(storeId);
     }
 
     save(store) {
@@ -16,4 +17,4 @@ export default class StoreService {
 
 }
 
-StoreService.$inject = ['StoresService'];
+StoreService.$inject = ['$q',  '$firebaseArray', 'firebaseDataService', 'StoresService'];

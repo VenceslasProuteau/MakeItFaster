@@ -9,16 +9,14 @@
         <title>Make It Faster ! </title>
     </head>
     <body>
-        <spinner 
-            class="spinner"
-            ng-show="SpinnerAPI.visible()">
+        <spinner ng-show="SpinnerAPI.visible()">
         </spinner>
         <toaster-container></toaster-container>
 
         <div 
-            class="app"
+            class="{{appStyles.layout}}"
             ui-view="main"
-            ng-class="{'app--login': $state.current.name === 'login' || $state.current.name === 'signup'}">
+            ng-class="loginState()">
         </div>
     </body>
 </html>

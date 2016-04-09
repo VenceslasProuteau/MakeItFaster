@@ -1,0 +1,109 @@
+@import 
+
+	'styles/vars',
+	'styles/normalize';
+
+
+* {
+    font-family: "RalewayLight", Helvetica, Arial, sans-serif;
+}
+
+// Adjust page size to device width in virtual pixels
+// on mobile Internet Explorer (e.g. Surface):
+@-ms-viewport {
+    width: device-width;
+}
+
+@font-face {
+    font-family: "RalewayLight";
+    src: url('./font/Raleway-Light.ttf');
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-weight: 400;
+    font-size: 100%;
+    font-style: normal;
+    font-family: "RalewayLight", Helvetica, Arial, sans-serif;
+    color: $alto;
+    background-color: $color-light;
+}
+
+// debug angular
+.ng-animate-start,
+.ng-animate-active {
+    border-collapse: collapse;
+    border-spacing: none;
+    -ms-zoom: auto;
+}
+
+input {    
+	display: flex;
+  font-style: normal;
+  border: none;
+  font-size: .9rem;
+  padding: .8rem;
+  border: solid 1px $color-blue;
+  color: $color-light;
+	-webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    -webkit-appearance: none !important;
+    &:focus {
+        outline: none;
+    }
+  }
+
+input:placeholder-shown {
+    font-style: italic;
+    opacity: 0.8;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: $color-light;
+    font-family: 'RalewayLight';
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: $color-light;
+   font-family: 'RalewayLight';
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: $color-light;
+   font-family: 'RalewayLight';
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: $color-light;
+   font-family: 'RalewayLight';
+}
+:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+  color: $color-light;
+  font-family: 'RalewayLight';
+}
+
+label.ng-invalid, input.ng-invalid {
+
+	border-bottom-color: $color-red !important;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px $color-blue-light inset;
+    color: $color-light;
+    -webkit-text-fill-color: $color-light !important;
+}
+
+
+.layout {
+	height: 100%;
+}
+
+.layoutLogin {
+	background: $color-blue;
+}

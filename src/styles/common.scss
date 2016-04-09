@@ -14,45 +14,7 @@
     "modules/forms",
     "modules/toaster",
     "modules/spinner",
-    "modules/home",
-    "modules/login";
+    "modules/home";
 
-* {
-    font-family: "RalewayLight", Helvetica, Arial, sans-serif;
-}
 
-// Adjust page size to device width in virtual pixels
-// on mobile Internet Explorer (e.g. Surface):
-@-ms-viewport {
-    width: device-width;
-}
 
-@font-face {
-    font-family: "RalewayLight";
-    src: url('../font/Raleway-Light.ttf');
-}
-
-html,
-body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    font-weight: 400;
-    font-size: 100%;
-    font-style: normal;
-    font-family: "RalewayLight", Helvetica, Arial, sans-serif;
-    color: $alto;
-    background-color: $color-light;
-}
-
-// debug angular
-.ng-animate-start,
-.ng-animate-active {
-    border-collapse: collapse;
-    border-spacing: none;
-    -ms-zoom: auto;
-}

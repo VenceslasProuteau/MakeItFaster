@@ -1,7 +1,7 @@
 'use strict';
 
 // import all common scss
-import './styles/common.scss';
+import appStyles from './app.scss';
 
 // import modules 
 import angular from 'angular';
@@ -43,6 +43,15 @@ angular.module('app', [angularfire, toaster, uirouter, login, home, history, geo
 runApp.$inject = ['$rootScope', '$location', '$state', 'SpinnerAPI'];
 
 function runApp($rootScope, $location, $state, SpinnerAPI) {
+    $rootScope.appStyles = appStyles;
+    console.log(appStyles);
+
+    $rootScope.loginState = function () {
+        if ($state.current.name === 'login' || $state.current.name === 'signup') {
+            return appStyles.layoutLogin;
+        }  
+    }
+       
     $rootScope.$state = $state;
     $rootScope.SpinnerAPI = SpinnerAPI;
     

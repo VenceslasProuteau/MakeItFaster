@@ -1,95 +1,33 @@
-// INPUTS
+@import '../vars';
 
-input {    
-	display: flex;
-  font-style: normal;
-  border: none;
-  font-size: .9rem;
-  padding: .8rem;
-  border: solid 1px $color-blue;
-  color: $color-light;
-	-webkit-user-select: none !important;
-    -moz-user-select: none !important;
-    -ms-user-select: none !important;
-    -webkit-appearance: none !important;
-    &:focus {
-        outline: none;
-    }
-  }
-
-input:placeholder-shown {
-    font-style: italic;
-    opacity: 0.8;
+.common {
+    display: flex;
+    position: relative;
+    margin: 1rem 0;
+    height: 3.5rem;
+    background: $color-blue-light;
 }
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+
+.invalid {
+    composes: common;
+    &:after {
+        font-family: 'icomoon';
+        content: "\e919";
+        color: red;
+        position: absolute;
+        right: .5rem;
+        top: .8rem;
+        font-size: 1.5rem;
+    }
+}
+
+.input {
+    width: 100%;
     color: $color-light;
-    font-family: 'RalewayLight';
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color: $color-light;
-   font-family: 'RalewayLight';
-   opacity:  1;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color: $color-light;
-   font-family: 'RalewayLight';
-   opacity:  1;
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color: $color-light;
-   font-family: 'RalewayLight';
-}
-:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
-  color: $color-light;
-  font-family: 'RalewayLight';
+    background: none;
 }
 
-label.ng-invalid, input.ng-invalid {
-
-	border-bottom-color: $color-red !important;
-}
-
-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px $color-blue-light inset;
-    color: $color-light;
-    -webkit-text-fill-color: $color-light !important;
-}
-
-
-
-.form {
-    &__block {
-        display: flex;
-        position: relative;
-        margin: 1rem 0;
-        height: 3.5rem;
-        background: $color-blue-light;
-
-        &--invalid {
-            &:after {
-                font-family: 'icomoon';
-                content: "\e919";
-                color: red;
-                position: absolute;
-                right: .5rem;
-                top: .8rem;
-                font-size: 1.5rem;
-            }
-        }
-
-        &--account {
-            background: $color-blue-dark;
-        }
-    }
-
-    &__input {
-        width: 100%;
-        color: $color-light;
-        background: none;
-
-        &--account {
-            border: none;
-            border-bottom: solid 1px darken($color-blue-dark, 10);
-        }
-    }
+.inputAccount {
+    border: none;
+    border-bottom: solid 1px darken($color-blue-dark, 10);
 }

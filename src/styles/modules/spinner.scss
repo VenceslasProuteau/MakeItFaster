@@ -1,9 +1,16 @@
+
+$color-blue: blue;
+
 @keyframes spinner {
 
   100% {
     transform: rotate(360deg);
   }
 
+}
+
+.wrapper {
+	color: red;
 }
 
 .spinner {

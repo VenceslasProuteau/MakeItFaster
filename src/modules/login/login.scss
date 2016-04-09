@@ -1,0 +1,72 @@
+@import "../../styles/vars";
+
+.layout {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30rem;
+    font-size: 1.4rem;
+    border-radius: .3rem;
+    color: $color-light;
+
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+    top: 50%;
+	transform: translateY(-50%);
+}
+
+.titleBlock {
+	border-bottom: solid 1px $color-blue-light;
+	font-size: 2rem;
+	padding-bottom: 1rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	font-style: italic;
+	color: $color-blue-dark;
+
+	&::first-letter {
+		color: $color-red;
+	}
+}
+
+.blockWrapper {
+	padding: 2rem 0;
+	border-radius: 0 0 .3rem .3rem;
+}
+
+.validate {
+	text-align: center;
+}
+
+.sentence {
+	text-align: left;
+	font-size: 1.1rem;
+}
+
+.brand {
+	font-style: italic;
+	font-variant: small-caps;
+	color: $color-grey;
+}
+
+.bottomInfos {
+	display: flex;
+	justify-content: space-between;
+	font-size: 1rem;
+	padding: 1rem 0;
+	i {
+		font-size: .8rem;
+
+	}
+	span:last-child {
+		border-left: solid 1px $color-light;
+		padding-left: 1.2rem;
+	}
+}
+
+.signup {
+	text-decoration: underline;
+}

@@ -1,0 +1,18 @@
+<div class="{{loginStyles.blockWrapper}}">
+	<div class="{{loginStyles.sentence}}"><b>Bienvenue.</b> Accédez à votre application <span class="{{loginStyles.brand}}">Make It Faster</span></div>
+	<div class="form__block">
+		<input type="email" id="user" ng-model="user.email" class="input label form__input" placeholder="Adresse email" required/>
+	</div>
+
+	<div class="form__block">
+		<input type="password" id="password" ng-model="user.password" class="input input form__input" placeholder="Mot de passe" required/>
+	</div>
+
+	<div class="{{loginStyles.validate}}">
+		<button class="button button--login button--w100" ng-click="loginCtrl.login(user)" ng-disabled="loginForm.$invalid">Se connecter</button>
+	</div>
+	<div class="{{loginStyles.bottomInfos}}">
+		<a ui-sref="login"><i class="icon-key"></i> Mot de passe oublié ?</a>
+		<span>Pas encore inscrit ? <a ui-sref="signup" class="{{loginStyles.signup}}">Inscrivez-vous !</a></span>
+	</div>
+</div>

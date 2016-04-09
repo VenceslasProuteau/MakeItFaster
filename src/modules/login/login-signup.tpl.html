@@ -1,0 +1,29 @@
+<div class="{{loginStyles.blockWrapper}}">
+
+	<div class="{{loginStyles.sentence}}"><b>Bienvenue.</b> Créez rapidement votre compte <span class="{{loginStyles.brand}}">Make It Faster.</span></div>
+
+	<div class="form__block">
+		<input type="text" name="firstName" id="firstName" ng-model="user.signup.firstName" class="input input form__input" placeholder="Prénom" required/>
+	</div>
+
+	<div class="form__block">
+		<input type="text" name="lastName" id="lastName" ng-model="user.signup.lastName" class="input input form__input" placeholder="Nom" required/>
+	</div>
+
+	<div class="form__block">
+		<input type="email" name="email" id="email" ng-model="user.signup.email" class="input label form__input" placeholder="Adresse email" ng-pattern="/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/" required/>
+	</div>
+
+	<div class="form__block">
+		<input type="password" name="password" id="password" ng-model="user.signup.password" class="input input form__input" placeholder="Mot de passe" required/>
+	</div>
+
+	<div class="form__block">
+		<input type="password" name="confirmPassword" id="confirmPassword" ng-model="user.signup.passwordConfirm" class="input input form__input" placeholder="Confirmation mot de passe" required compare-to="user.signup.password"/>
+	</div>
+
+	<div class="{{loginStyles.validate}}">
+		<button class="button button--login button--w100" ng-click="loginCtrl.signup(user)" ng-disabled="loginForm.$invalid">Valider les informations</button>
+	</div>
+	
+</div>

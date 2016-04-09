@@ -99,7 +99,13 @@ module.exports = function makeWebpackConfig (options) {
       loader: 'babel',
       exclude: /node_modules/
     }, {
-      test: /.scss$/, loader: "style!css!sass!jsontosass?path="+ jsonVars
+      test: /\.scss$/,
+      loaders: [
+          'style',
+          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+          'sass',
+          'jsontosass?path='+ jsonVars
+      ]
     }, {
       // ASSET LOADER
       // Reference: https://github.com/webpack/file-loader
@@ -146,7 +152,7 @@ module.exports = function makeWebpackConfig (options) {
     //
     // Reference: https://github.com/webpack/style-loader
     // Use style-loader in development for hot-loading
-    loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss')
+    loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader')
   };
 
   // Skip loading css in test mode

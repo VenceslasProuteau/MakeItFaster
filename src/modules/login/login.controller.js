@@ -1,11 +1,13 @@
 'use strict';
 
+import loginStyles from './login.scss';
+
 export default class LoginController {
 
     constructor($state, $timeout, LoginAPI, toaster, SpinnerAPI, UserService) {
         this.$state = $state;
         this.$timeout = $timeout;
-
+        this.loginStyles = loginStyles;
         this.UserService = UserService;
         this.LoginAPI = LoginAPI;
         this.toaster = toaster;

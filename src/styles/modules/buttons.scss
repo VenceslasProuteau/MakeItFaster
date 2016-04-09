@@ -1,4 +1,4 @@
-.button {
+.common {
     user-select: none !important;
     display: inline-block;
     cursor: pointer;
@@ -13,35 +13,28 @@
     transition: all ease-in .3s;
     border: none;
 
-    &[disabled] {
-        cursor: default;
-    }
-
-    &--login {
-        padding: 1rem 1.5rem;
-        font-size: 1rem;
-        background-color: $color-red;
-    }
-
-    &--action {
-    	background-color: darken($color-blue-dark, 5);
-    	&:hover {
-    		background-color: darken($color-blue-dark, 10);
-    	}
-    }
-
-    &--cancel {
-        background-color: $color-red;
-        &:hover {
-            background-color: darken($color-red, 5);
-        }
-    }
-
-    &--w100 {
-        width: 100%;
-    }
-
     & + & {
         margin-left: .5rem;
     }
+}
+
+.action {
+    composes: common;
+    background-color: darken($color-blue-dark, 5);
+    &:hover {
+        background-color: darken($color-blue-dark, 10);
+    }
+}
+
+.cancel {
+    composes: common;
+    background-color: $color-red;
+    &:hover {
+        background-color: darken($color-red, 5);
+    }
+}
+
+.fullWidth {
+    composes: common;
+    width: 100%;
 }

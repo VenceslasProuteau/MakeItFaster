@@ -1,0 +1,102 @@
+.market {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	color: $color-light;
+
+	&__categories {
+		display: flex;
+		flex: 1 1 100%;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-content: space-around;
+		color: $color-light;
+		font-size: 1.2rem;
+		padding: 1rem;
+		border-bottom: solid 1px $color-blue-dark;
+	}
+
+	&__category {
+		padding: 1rem;
+		background: $color-blue-dark;
+		cursor: pointer;
+		text-transform: uppercase;
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		flex: 0 1 33%;
+		height: 7rem;
+
+		&--isActive {
+			background: darken($color-blue-dark, 10);
+		}
+	}
+
+	&__detail {
+		display: flex;
+		flex: 0 1 85%;
+	}
+
+	&__products {
+		display: flex;
+		flex: 1 1 33.3%;
+		flex-direction: column;
+		padding: 1rem;
+	}
+
+	&__product {
+		flex: 1 1;
+		background: $color-blue-dark;
+		border-bottom: solid 1px $color-light;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		&-resume {
+			padding: 1rem;
+			font-style: italic;
+		}
+
+		&-bottom {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		&-content {
+			padding: 1rem;
+			border-bottom: solid 1px darken($color-blue-dark, 10);
+		}
+
+		&-actions {
+			padding: .5rem;
+		}
+	}
+
+	&__storeMap {
+		flex: 1 1 33.3%;
+	}
+
+	&__subcategory {
+		height: 5rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: $color-blue-dark;
+		cursor: pointer;
+
+		&-products {
+			flex:1 1 33.3%;
+			padding: 1rem 0;
+		} 
+	}
+
+	&__title {
+		text-transform: uppercase;
+		font-size: 1.2rem;
+	}
+
+}

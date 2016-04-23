@@ -1,0 +1,18 @@
+<div class="market__products">
+	<div
+		class="market__subcategory" 
+		ng-repeat="subcategory in productsCtrl.subcategories"
+		ui-sref="app.market.products.subcategory({subcategoryId: subcategory.$id})"
+		>
+		<div class="market__title"> {{::subcategory.$id}} </div>
+	</div>
+</div>
+<div 
+	class="market__subcategory-products" 
+	ng-show="$state.current.name === 'app.market.products.subcategory'"
+	ui-view="subcategory"
+	>
+</div>
+<div class="market__storeMap">
+	storeMap
+</div>

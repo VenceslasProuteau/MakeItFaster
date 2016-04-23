@@ -9,6 +9,9 @@ export default class firebaseDataService {
 		this.stores = this.root.child('stores');
 		this.markers = this.root.child('markers');
 		this.starredStores = this.root.child('starred');
+		this.categories = this.root.child('categories');
+		this.subcategories = this.root.child('subcategories');
+		this.products = this.root.child('products');
 	}
 }
 

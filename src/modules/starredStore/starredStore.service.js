@@ -2,20 +2,21 @@
 
 export default class StarredStoreService {
 
-    constructor(StarredStoresService, StoreService) {
-        this.StoreService = StoreService;
+    constructor(StarredStoresService, StoresService) {
+        this.StoresService = StoresService;
         this.StarredStoresService = StarredStoresService;
     }
 
     updateStarredStore(id) {
-        // we retrieve the selectedStore from the StoreService
-        const selectedStore = this.StoreService.get(id);
+        const self = this;
+        // we retrieve the selectedStore from the StoresService
+        return this.StoresService.getStore(id)
+            .then((store) => {
+                self.exists(id) ? self.removeItem(store) : self.addItem(store);
+                self.StoresService.save(store);
+            })
+            .catch((error) => console.log(error))
 
-        // if the item exists we remove it, if not, we add it
-        this.exists(id) ? this.removeItem(selectedStore) : this.addItem(selectedStore);
-
-        // we then save it
-        this.StoreService.save(selectedStore);
     }
 
     addItem(selectedStore) {
@@ -28,6 +29,7 @@ export default class StarredStoreService {
     removeItem(selectedStore) {
         // to keep good db structuring datas we update it in the stores array,
         // and in the starred array
+        console.log(selectedStore);
         selectedStore.isStarred = false;
         this.StarredStoresService.ref.child(selectedStore.$id).set(null);
     }
@@ -40,4 +42,4 @@ export default class StarredStoreService {
 
 }
 
-StarredStoreService.$inject = ['StarredStoresService', 'StoreService'];
+StarredStoreService.$inject = ['StarredStoresService', 'StoresService'];

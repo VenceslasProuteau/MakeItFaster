@@ -1,0 +1,18 @@
+<div class="market">
+
+	<div class="market__categories">
+		<div
+			class="market__category"
+			ng-repeat="category in marketCtrl.categories"
+			ui-sref="app.market.products({catId: category.$id})"
+			ng-class="{'market__category--isActive': $state.params.catId === category.$id}"
+			>
+			{{::category.name}}
+		</div>
+	</div>
+	<div 
+		ui-view="detail"
+		class="market__detail"
+		>
+	</div>
+</div>

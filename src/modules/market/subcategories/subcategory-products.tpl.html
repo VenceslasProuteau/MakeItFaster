@@ -1,0 +1,21 @@
+<div
+	class="market__product" 
+	ng-repeat="product in subCatCtrl.products"
+	>
+	<div class="market__product-content">
+		<div class="market__product-title"> {{:: product.name}} </div>
+		<div class="market__product-resume"> {{:: product.descr}} </div>
+		<div class="market__product-bottom">
+			<span> Prix : {{:: product.price}} €</span>
+			<span> Quantité restante : {{:: product.qte}}</span>
+		</div>
+	</div>
+	<div class="market__product-actions">
+		<button class="button button--action">
+			Ajouter au panier
+		</button>
+		<button class="button button--action">
+			Voir sur le plan
+		</button>
+	</div>
+</div> 

@@ -4,14 +4,15 @@
 			<div 
 				class="home__store"
 				ng-repeat="store in homeCtrl.stores"
-				ng-style="{'background-image': ' url(' + store.storeImage + ')' }">
-
+				ng-style="{'background-image': ' url(' + store.storeImage + ')' }"
+				ng-click="homeCtrl.centerStore(store.$id)"
+				>
 				<div 
 					class="home__store-resume"
-					ng-click="homeCtrl.centerStore(store.$id)">
-					{{::store.address.city}} <br/> {{::store.address.street}}
+					>
+					{{::store.adress.city}} <br/> {{::store.adress.street}}
 					<div class="home__store-access">
-						<a href="" title="Accéder à la page produits" alt="Accéder à la page produits" class="home__store-access__btn">
+						<a ui-sref="app.market({id: store.$id})" title="Accéder à la page produits" alt="Accéder à la page produits" class="home__store-access__btn">
 							<i class="icon-directions"></i>
 						</a>
 					</div>
@@ -32,7 +33,7 @@
 				<ui-gmap-marker ng-repeat="marker in homeCtrl.markers track by $index" coords="marker.coords" idKey="marker.$id" click="homeCtrl.openModal(marker)" options="marker.options">
 					<ui-gmap-window show="marker.visible">
 		            	<div class="home__gmap-infos">
-		            		{{::marker.address.street}}
+		            		{{::marker.adress.street}}
 		            		<div class="home__gmaps-picture" ng-style="{'background-image':'url({{marker.storeImage}})'}"></div>
 		            	</div>
 		            </ui-gmap-window>

@@ -1,12 +1,13 @@
 'use strict';
 
-export default class StoresService {
+export default class ProductsService {
 
     constructor($firebaseArray, $firebaseObject, $q, firebaseDataService) {
         this.$firebaseArray = $firebaseArray;
         this.$firebaseObject = $firebaseObject;
         this.$q = $q;
-        this.ref = firebaseDataService.stores;
+        this.ref = firebaseDataService.products;
+        this.products = $firebaseArray(this.ref);
     }
 
     get() {
@@ -14,28 +15,27 @@ export default class StoresService {
 
         this.$firebaseArray(this.ref)
             .$loaded()
-            .then((stores) => deferred.resolve(stores))
+            .then((products) => deferred.resolve(products))
             .catch((error) => deferred.reject(error));
 
         return deferred.promise;
     }
 
-    getStore(storeId) {
+    getProducts(subCategoryId) {
         const deferred = this.$q.defer(),
-            ref = this.ref.child(storeId);
+            ref = this.ref.child(subCategoryId);
 
-        this.$firebaseObject(ref)
+        this.$firebaseArray(ref)
             .$loaded()
-            .then((stores) => deferred.resolve(stores))
+            .then((products) => {
+                console.log(products);
+                deferred.resolve(products);
+            })
             .catch((error) => deferred.reject(error));
 
         return deferred.promise;
-    }
-
-    save(store) {
-        
     }
 
 }
 
-StoresService.$inject = ['$firebaseArray', '$firebaseObject', '$q', 'firebaseDataService'];
+ProductsService.$inject = ['$firebaseArray', '$firebaseObject', '$q', 'firebaseDataService'];

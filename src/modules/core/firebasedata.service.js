@@ -15,3 +15,5 @@ export default class firebaseDataService {
 	}
 }
 
+firebaseDataService.$inject = ['FIREBASEURL'];
+

@@ -13,3 +13,5 @@ export default class MarkersService {
             .then((markers) => this.markers = markers);
     }
 }
+
+MarkersService.$inject = ['$firebaseArray', '$q', 'firebaseDataService'];
